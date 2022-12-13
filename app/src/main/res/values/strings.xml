@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BJAD</string>
+    <string name="log_in">Log In</string>
+    <string name="signup">signUp</string>
+</resources>
