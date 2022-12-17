@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.Model.User
+import com.example.bjad.Model.User
 import com.example.bjad.databinding.FragmentRegisterBinding
-import com.example.util.isValidEmail
+import com.example.bjad.util.isValidEmail
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

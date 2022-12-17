@@ -1,4 +1,4 @@
-package com.example.Model
+package com.example.bjad.Model
 
 data class User(
     var userName: String = "",
