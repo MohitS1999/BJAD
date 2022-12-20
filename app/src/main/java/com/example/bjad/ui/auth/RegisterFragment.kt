@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bjad.Model.User
 import com.example.bjad.R
@@ -20,7 +21,7 @@ class RegisterFragment : Fragment() {
 
     val TAG: String = "RegisterFragment"
     lateinit var binding: FragmentRegisterBinding
-    lateinit var viewModel: AuthViewModel
+    private val viewModel by viewModels<AuthViewModel> ()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,9 +92,9 @@ class RegisterFragment : Fragment() {
                 is UiState.Success -> {
                     binding.registerProgress.visibility = View.INVISIBLE
                     Toast.makeText(context,state.data,Toast.LENGTH_SHORT).show()
-                    //findNavController().navigate(R.id.action_registerFragment_to_tempFragment,Bundle().apply {
+                    findNavController().navigate(R.id.action_registerFragment2_to_tempFragment,Bundle().apply {
 
-                    //})
+                    })
                 }
             }
 
