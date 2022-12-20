@@ -5,56 +5,94 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.bjad.R
+import com.example.bjad.databinding.FragmentLoginBinding
+import com.example.bjad.util.UiState
+import com.example.bjad.util.isValidEmail
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_login.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val TAG = "LoginFragment"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    lateinit var binding: FragmentLoginBinding
+    val viewModel:AuthViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        binding = FragmentLoginBinding.inflate(layoutInflater)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        observer()
+        binding.logInBtn.setOnClickListener {
+            if (validation()) {
+                    viewModel.login(
+                        email = binding.emailEt.text.toString(),
+                        password = binding.passEt.text.toString()
+                    )
+            }
+
+        }
+
+        binding.forgetPassword.setOnClickListener {
+
+        }
+
+        binding.signUplabel.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment2,Bundle().apply {  })
+        }
+    }
+
+    fun observer() {
+        viewModel.login.observe(viewLifecycleOwner) { state ->
+            when(state){
+                is UiState.Loading -> {
+                    binding.registerProgress.visibility = View.VISIBLE
+                }
+                is UiState.Failure -> {
+                    binding.registerProgress.visibility = View.INVISIBLE
+                    Toast.makeText(context,state.error,Toast.LENGTH_SHORT).show()
+                }
+                is UiState.Success -> {
+                    binding.registerProgress.visibility = View.INVISIBLE
+                    Toast.makeText(context,state.data,Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_loginFragment_to_tempFragment,Bundle().apply {
+
+                    })
                 }
             }
+
+        }
     }
+
+    fun validation(): Boolean {
+        var isValid = true
+
+        if (binding.emailEt.text.isNullOrEmpty()){
+            isValid = false;
+            Toast.makeText(context,"Please Enter Email", Toast.LENGTH_SHORT).show()
+        }else{
+            if (!binding.emailEt.text.toString().isValidEmail()){
+                isValid = false;
+                Toast.makeText(context,"Please Enter Valid Email", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        if (binding.passEt.text.isNullOrEmpty()){
+            isValid = false;
+            Toast.makeText(context,"Please Enter Password", Toast.LENGTH_SHORT).show()
+        }
+        return isValid;
+    }
+
 }

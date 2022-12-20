@@ -23,11 +23,6 @@ class RegisterFragment : Fragment() {
     lateinit var binding: FragmentRegisterBinding
     private val viewModel by viewModels<AuthViewModel> ()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,6 +42,9 @@ class RegisterFragment : Fragment() {
                     user = getUserObj()
                 )
             }
+        }
+        binding.logInlabel.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment2_to_loginFragment,Bundle().apply {  })
         }
     }
 

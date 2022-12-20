@@ -58,7 +58,7 @@
                 android:weightSum="2">
 
                 <TextView
-                    android:id="@+id/logIn"
+                    android:id="@+id/logInlobel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -76,7 +76,7 @@
                     android:textStyle="bold|normal" />
 
                 <TextView
-                    android:id="@+id/signUp"
+                    android:id="@+id/signUplabel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -111,17 +111,17 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
-                    android:hint="Email or User Name"
+                    android:hint="Email"
                     app:boxStrokeColor="#4E4A4A"
                     app:boxStrokeWidth="1dp"
                     app:shapeAppearanceOverlay="@style/Button4">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/eMail"
+                        android:id="@+id/emailEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="textPersonName|textEmailAddress"
+                        android:inputType="textEmailAddress"
                         android:textColor="@color/black"
                         android:textSize="13sp"
                         android:textStyle="normal" />
@@ -141,7 +141,7 @@
                     app:shapeAppearanceOverlay="@style/Button4">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/password"
+                        android:id="@+id/passEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autofillHints="password"
@@ -153,6 +153,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
+                    android:id="@+id/forgetPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Forget Password ?"
@@ -163,6 +164,7 @@
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/logInBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -183,8 +185,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
                 android:gravity="center"
                 android:text="OR"
                 android:textColor="#474646"

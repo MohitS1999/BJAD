@@ -57,7 +57,7 @@
                 android:weightSum="2">
 
                 <TextView
-                    android:id="@+id/logIn"
+                    android:id="@+id/logInlabel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -75,7 +75,7 @@
                     android:textStyle="bold|normal" />
 
                 <TextView
-                    android:id="@+id/signUp"
+                    android:id="@+id/signUplobel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

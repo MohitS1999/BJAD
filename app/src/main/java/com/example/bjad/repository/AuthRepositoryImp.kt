@@ -77,8 +77,16 @@ class AuthRepositoryImp(
             }
     }
 
-    override fun loginUser(user: User, result: (UiState<String>) -> Unit) {
-        TODO("Not yet implemented")
+    override fun loginUser(email: String, password: String, result: (UiState<String>) -> Unit) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    result.invoke(UiState.Success("Logged In successfully"))
+                }
+            }
+            .addOnFailureListener {
+                result.invoke(UiState.Failure(it.localizedMessage))
+            }
     }
 
     override fun forgotPassword(user: User, result: (UiState<String>) -> Unit) {

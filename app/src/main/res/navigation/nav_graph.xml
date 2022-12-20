@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/registerFragment2">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/registerFragment2"
@@ -13,10 +13,25 @@
         <action
             android:id="@+id/action_registerFragment2_to_tempFragment"
             app:destination="@id/tempFragment" />
+        <action
+            android:id="@+id/action_registerFragment2_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/tempFragment"
         android:name="com.example.bjad.TempFragment"
         android:label="fragment_temp"
         tools:layout="@layout/fragment_temp" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.bjad.ui.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment2"
+            app:destination="@id/registerFragment2" />
+        <action
+            android:id="@+id/action_loginFragment_to_tempFragment"
+            app:destination="@id/tempFragment" />
+    </fragment>
 </navigation>
