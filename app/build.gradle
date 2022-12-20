@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-kapt'
     id 'org.jetbrains.kotlin.android'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -54,6 +55,7 @@ dependencies {
 
     // Fragment
     implementation "androidx.fragment:fragment-ktx:1.5.5"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
 
 
     // Lifecycle + ViewModel & LiveData
@@ -76,7 +78,10 @@ dependencies {
 
     implementation platform('com.google.firebase:firebase-bom:31.1.1')
 
-    // Add the dependency for the Realtime Database library
-    // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation 'com.google.firebase:firebase-database-ktx'
+    //Firebase
+    implementation 'com.google.firebase:firebase-firestore:24.4.1'
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
+    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4"
 }

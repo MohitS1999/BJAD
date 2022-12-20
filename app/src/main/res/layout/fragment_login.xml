@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/background"
-    tools:context=".LoginFragment">
+    tools:context=".ui.auth.LoginFragment">
 
     <TextView
         android:layout_width="match_parent"
@@ -162,8 +162,7 @@
                     android:textStyle="normal" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/logInBtn"
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -176,7 +175,9 @@
                 android:textColor="@color/textColor"
                 android:textSize="17sp"
                 app:backgroundTint="@color/pinkColor"
-                app:shapeAppearanceOverlay="@style/Button5" />
+                app:shapeAppearanceOverlay="@style/Button5">
+            </com.google.android.material.button.MaterialButton>
+
 
             <TextView
                 android:layout_width="match_parent"

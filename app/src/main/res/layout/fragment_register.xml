@@ -6,7 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/background"
-    tools:context=".RegisterFragment">
+    android:id="@+id/registerFragment"
+    tools:context=".ui.auth.RegisterFragment">
 
     <TextView
         android:layout_width="match_parent"

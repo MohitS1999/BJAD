@@ -1,4 +1,4 @@
-package com.example.bjad
+package com.example.bjad.ui.auth
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,16 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.bjad.Model.User
+import com.example.bjad.R
 import com.example.bjad.databinding.FragmentRegisterBinding
+import com.example.bjad.util.UiState
 import com.example.bjad.util.isValidEmail
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_login.*
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
     val TAG: String = "RegisterFragment"
     lateinit var binding: FragmentRegisterBinding
+    lateinit var viewModel: AuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +40,11 @@ class RegisterFragment : Fragment() {
         observer()
         binding.signInBtn.setOnClickListener {
             if (validation()){
-
+                viewModel.register(
+                    email =  binding.eMailSign.text.toString(),
+                    password = binding.passwordSign.text.toString(),
+                    user = getUserObj()
+                )
             }
         }
     }
@@ -70,11 +79,30 @@ class RegisterFragment : Fragment() {
     }
 
     fun observer() {
-        TODO("Not yet implemented")
+        viewModel.register.observe(viewLifecycleOwner) { state ->
+            when(state){
+                is UiState.Loading -> {
+                    binding.registerProgress.visibility = View.VISIBLE
+                }
+                is UiState.Failure -> {
+                    binding.registerProgress.visibility = View.INVISIBLE
+                    Toast.makeText(context,state.error,Toast.LENGTH_SHORT).show()
+                }
+                is UiState.Success -> {
+                    binding.registerProgress.visibility = View.INVISIBLE
+                    Toast.makeText(context,state.data,Toast.LENGTH_SHORT).show()
+                    //findNavController().navigate(R.id.action_registerFragment_to_tempFragment,Bundle().apply {
+
+                    //})
+                }
+            }
+
+        }
     }
 
     fun getUserObj(): User {
         return User(
+            id = "",
             userName = binding.username.text.toString(),
             email = binding.eMailSign.text.toString()
         )
