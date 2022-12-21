@@ -7,71 +7,55 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.example.bjad.R
-import com.example.bjad.databinding.FragmentLoginBinding
+import com.example.bjad.databinding.FragmentForgotPasswordBinding
 import com.example.bjad.util.UiState
 import com.example.bjad.util.isValidEmail
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_forgot_password.*
 
-private const val TAG = "LoginFragment"
 
+private const val TAG = "ForgotPassword"
 @AndroidEntryPoint
-class LoginFragment : Fragment() {
+class ForgotPassword : Fragment() {
 
-    lateinit var binding: FragmentLoginBinding
+    lateinit var binding:FragmentForgotPasswordBinding
     val viewModel:AuthViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLoginBinding.inflate(layoutInflater)
+        // Inflate the layout for this fragment
+        binding = FragmentForgotPasswordBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observer()
-        binding.logInBtn.setOnClickListener {
-            if (validation()) {
-                    viewModel.login(
-                        email = binding.emailEt.text.toString(),
-                        password = binding.passEt.text.toString()
-                    )
+        binding.sendBtn.setOnClickListener{
+            if (validation()){
+                viewModel.forgotPassword(binding.emailEt.text.toString())
             }
-
-        }
-
-        binding.forgetPassword.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_forgotPassword,Bundle().apply {  })
-        }
-
-        binding.signUplabel.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment2,Bundle().apply {  })
         }
     }
 
-    fun observer() {
-        viewModel.login.observe(viewLifecycleOwner) { state ->
-            when(state){
+    private fun observer(){
+        viewModel.forgot.observe(viewLifecycleOwner) { state ->
+            when (state){
                 is UiState.Loading -> {
                     binding.registerProgress.visibility = View.VISIBLE
                 }
                 is UiState.Failure -> {
                     binding.registerProgress.visibility = View.INVISIBLE
-                    Toast.makeText(context,state.error,Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,state.error, Toast.LENGTH_SHORT).show()
                 }
                 is UiState.Success -> {
                     binding.registerProgress.visibility = View.INVISIBLE
                     Toast.makeText(context,state.data,Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_loginFragment_to_tempFragment,Bundle().apply {
-
-                    })
                 }
             }
-
         }
     }
 
@@ -86,11 +70,6 @@ class LoginFragment : Fragment() {
                 isValid = false;
                 Toast.makeText(context,"Please Enter Valid Email", Toast.LENGTH_SHORT).show()
             }
-        }
-
-        if (binding.passEt.text.isNullOrEmpty()){
-            isValid = false;
-            Toast.makeText(context,"Please Enter Password", Toast.LENGTH_SHORT).show()
         }
         return isValid;
     }

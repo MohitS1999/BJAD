@@ -14,12 +14,17 @@ class AuthViewModel @Inject constructor(
     val repository: AuthRepository
 ) : ViewModel(){
     private val _register = MutableLiveData<UiState<String>>()
+    // for live data observer
     val register:LiveData<UiState<String>>
         get() = _register
 
     private val _login = MutableLiveData<UiState<String>>()
     val login:LiveData<UiState<String>>
         get() = _login
+
+    private val _forgot = MutableLiveData<UiState<String>>()
+    val forgot:LiveData<UiState<String>>
+        get() = _forgot
 
     fun register(
         email: String,
@@ -46,6 +51,14 @@ class AuthViewModel @Inject constructor(
             password = password
         ){
             _login.value = it
+        }
+    }
+
+
+    fun forgotPassword(email: String){
+        _forgot.value = UiState.Loading
+        repository.forgotPassword(email){
+            _forgot.value = it
         }
     }
 }
