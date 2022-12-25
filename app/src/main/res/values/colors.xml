@@ -8,7 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="textColor">#ECE5EC</color>
-    <color name="pinkColor">#FF003B</color>
+    <color name="pinkColor">#FE4A4A</color>
     <color name="tansparentColor">#00FFFFFF</color>
     <color name="brown">#594F51</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="main_primary">#6A7CFF</color>
+    <color name="main_backgroud">#F7F7FA</color>
+    <color name="dashboard_item_1">#2CC2EA</color>
+    <color name="dashboard_item_2">#4DE9C9</color>
+    <color name="dashboard_item_3">#72A4FF</color>
+    <color name="dashboard_item_4">#8B72FF</color>
 </resources>

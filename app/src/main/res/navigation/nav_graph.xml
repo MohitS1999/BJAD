@@ -11,17 +11,12 @@
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
-            android:id="@+id/action_registerFragment2_to_tempFragment"
-            app:destination="@id/tempFragment" />
-        <action
             android:id="@+id/action_registerFragment2_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment2_to_mainViewFragment"
+            app:destination="@id/mainViewFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/tempFragment"
-        android:name="com.example.bjad.TempFragment"
-        android:label="fragment_temp"
-        tools:layout="@layout/fragment_temp" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.bjad.ui.auth.LoginFragment"
@@ -31,11 +26,11 @@
             android:id="@+id/action_loginFragment_to_registerFragment2"
             app:destination="@id/registerFragment2" />
         <action
-            android:id="@+id/action_loginFragment_to_tempFragment"
-            app:destination="@id/tempFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_forgotPassword"
             app:destination="@id/forgotPassword" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainViewFragment"
+            app:destination="@id/mainViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPassword"
@@ -46,4 +41,9 @@
             android:id="@+id/action_forgotPassword_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/mainViewFragment"
+        android:name="com.example.bjad.ui.MainViewFragment"
+        android:label="fragment_main_view"
+        tools:layout="@layout/fragment_main_view" />
 </navigation>

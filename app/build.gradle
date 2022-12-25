@@ -84,4 +84,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4"
+
+    //SDP - a scalable size unit
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    // SSP - a scalable size unit for texts
+    implementation 'com.intuit.ssp:ssp-android:1.1.0'
+
+    //cardview
+    implementation 'androidx.cardview:cardview:1.0.0'
 }

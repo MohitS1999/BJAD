@@ -66,7 +66,7 @@ class LoginFragment : Fragment() {
                 is UiState.Success -> {
                     binding.registerProgress.visibility = View.INVISIBLE
                     Toast.makeText(context,state.data,Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_loginFragment_to_tempFragment,Bundle().apply {
+                    findNavController().navigate(R.id.action_loginFragment_to_mainViewFragment,Bundle().apply {
 
                     })
                 }
