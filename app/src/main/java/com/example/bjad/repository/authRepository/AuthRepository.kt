@@ -1,4 +1,4 @@
-package com.example.bjad.repository
+package com.example.bjad.repository.authRepository
 
 import com.example.bjad.Model.User
 import com.example.bjad.util.UiState

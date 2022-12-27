@@ -1,7 +1,9 @@
 package com.example.bjad.di
 
-import com.example.bjad.repository.AuthRepository
-import com.example.bjad.repository.AuthRepositoryImp
+import com.example.bjad.repository.authRepository.AuthRepository
+import com.example.bjad.repository.authRepository.AuthRepositoryImp
+import com.example.bjad.repository.mainRepository.MainRepository
+import com.example.bjad.repository.mainRepository.MainRepositoryImp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
@@ -19,8 +21,16 @@ object RepositoryModule {
     fun provideAuthRepository(
         database:FirebaseFirestore,
         auth:FirebaseAuth
-    ): AuthRepository{
+    ): AuthRepository {
         return AuthRepositoryImp(auth,database)
     }
 
+    @Provides
+    @Singleton
+    fun provideMainRepository(
+        auth: FirebaseAuth,
+        database: FirebaseFirestore
+    ) : MainRepository{
+        return MainRepositoryImp(auth,database)
+    }
 }

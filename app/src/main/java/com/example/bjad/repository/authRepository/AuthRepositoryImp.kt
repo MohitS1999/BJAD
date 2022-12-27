@@ -1,4 +1,4 @@
-package com.example.bjad.repository
+package com.example.bjad.repository.authRepository
 
 import com.example.bjad.Model.User
 import com.example.bjad.util.FireStoreCollection
@@ -12,7 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 class AuthRepositoryImp(
     val auth:FirebaseAuth,
     val database:FirebaseFirestore
-) : AuthRepository{
+) : AuthRepository {
 
     override fun registerUser(
         email:String,
@@ -57,11 +57,11 @@ class AuthRepositoryImp(
                 )
             }
     }
-
+    // FOR STORING THE DATA IN FIREBASE FIRESTORE
     override fun updateUserInfo(user: User, result: (UiState<String>) -> Unit) {
-        val document = database.collection(FireStoreCollection.USER).document()
-        user.id = document.id
-        document
+        val uid:String = auth.currentUser?.uid.toString()
+        user.id = uid
+        database.collection(FireStoreCollection.USER).document(uid)
             .set(user)
             .addOnSuccessListener {
                 result.invoke(

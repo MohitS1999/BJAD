@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/main_backgroud"
-    tools:context=".ui.MainViewFragment">
+    tools:context=".ui.homeUI.MainViewFragment">
 
     <View
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
         android:layout_marginTop="@dimen/_16sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="mohit"/>
+        android:text="hello, there!"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="@dimen/_26sdp"

@@ -1,6 +1,7 @@
 package com.example.bjad.di
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
@@ -23,4 +24,8 @@ object FirebaseModule {
     fun provideFirebaseAuthInstance():FirebaseAuth{
         return FirebaseAuth.getInstance()
     }
+
+
+
+
 }

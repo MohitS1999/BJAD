@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainViewFragment"
-        android:name="com.example.bjad.ui.MainViewFragment"
+        android:name="com.example.bjad.ui.homeUI.MainViewFragment"
         android:label="fragment_main_view"
         tools:layout="@layout/fragment_main_view" />
 </navigation>
