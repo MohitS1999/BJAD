@@ -1,15 +1,19 @@
 package com.example.bjad.di
 
+import com.example.bjad.api.SunsetSunriseApi
 import com.example.bjad.repository.authRepository.AuthRepository
 import com.example.bjad.repository.authRepository.AuthRepositoryImp
 import com.example.bjad.repository.mainRepository.MainRepository
 import com.example.bjad.repository.mainRepository.MainRepositoryImp
+import com.example.bjad.util.SunsetSunriseBase_url
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -29,8 +33,13 @@ object RepositoryModule {
     @Singleton
     fun provideMainRepository(
         auth: FirebaseAuth,
-        database: FirebaseFirestore
+        database: FirebaseFirestore,
+        sunsetSunriseApi: SunsetSunriseApi
     ) : MainRepository{
-        return MainRepositoryImp(auth,database)
+        return MainRepositoryImp(auth,database,sunsetSunriseApi)
     }
+
+
+
+
 }

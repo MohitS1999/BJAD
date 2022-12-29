@@ -9,11 +9,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.bjad.Model.Results
 import com.example.bjad.R
 import com.example.bjad.databinding.FragmentMainViewBinding
 import com.example.bjad.util.UiState
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_main_view.view.*
 
 private const val TAG = "MainViewFragment"
 
@@ -22,13 +24,8 @@ class MainViewFragment : Fragment() {
 
     lateinit var binding: FragmentMainViewBinding
     private val viewModel by viewModels<MainViewModel>()
+    private lateinit var sunSetSunriseRes:Results
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,18 +33,18 @@ class MainViewFragment : Fragment() {
     ): View? {
         binding = FragmentMainViewBinding.inflate(layoutInflater)
         Log.d(TAG, "onCreateView: ")
-        observer()
-        viewModel.setUser()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "onViewCreated: ")
+        setUserName()
+        setSunsetSunriseTime()
 
     }
 
-    fun observer() {
+    private fun setUserName() {
         viewModel.setUser.observe(viewLifecycleOwner) { state ->
             when(state){
                 is UiState.Loading -> {
@@ -66,4 +63,17 @@ class MainViewFragment : Fragment() {
         }
     }
 
+    // how to get the data using retrofit api
+    private fun setSunsetSunriseTime() {
+        viewModel.getSunsetSunrisedata.observe(viewLifecycleOwner) {
+            binding.sunrise.setText(it.results.sunrise)
+            binding.sunset.setText(it.results.sunset)
+        }
+
+    }
+
+
+
 }
+
+
