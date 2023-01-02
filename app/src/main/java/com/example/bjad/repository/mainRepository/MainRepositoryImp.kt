@@ -1,6 +1,7 @@
 package com.example.bjad.repository.mainRepository
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.bjad.Model.SunsetSetriseModel
 import com.example.bjad.Model.User
@@ -26,6 +27,8 @@ class MainRepositoryImp(
     override fun calendar(latitude: Int, longitude: Int) {
 
     }
+
+
 
     override fun setUserName(result: (UiState<String>) -> Unit){
         // how to get the current user

@@ -66,8 +66,14 @@ class MainViewFragment : Fragment() {
     // how to get the data using retrofit api
     private fun setSunsetSunriseTime() {
         viewModel.getSunsetSunrisedata.observe(viewLifecycleOwner) {
-            binding.sunrise.setText(it.results.sunrise)
-            binding.sunset.setText(it.results.sunset)
+            when (it)  {
+                is UiState.Success -> {
+                    binding.sunrise.setText(it.data.results.sunrise)
+                    binding.sunset.setText(it.data.results.sunset)
+                }
+                else -> {}
+            }
+
         }
 
     }

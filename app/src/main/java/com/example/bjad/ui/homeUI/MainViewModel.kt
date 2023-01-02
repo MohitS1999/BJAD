@@ -21,8 +21,8 @@ class MainViewModel @Inject constructor(
 ) : ViewModel(){
 
 
-    private val _getSunsetSunrisedata = MutableLiveData<SunsetSetriseModel>()
-    val getSunsetSunrisedata:LiveData<SunsetSetriseModel>
+    private val _getSunsetSunrisedata = MutableLiveData<UiState<SunsetSetriseModel>>()
+    val getSunsetSunrisedata:LiveData<UiState<SunsetSetriseModel>>
     get() = _getSunsetSunrisedata
 
     private val _setUser = MutableLiveData<UiState<String>>()
@@ -39,7 +39,7 @@ class MainViewModel @Inject constructor(
     private fun getSunsetSunrise()  = viewModelScope.launch(Dispatchers.IO) {
         repository.getSunsetSunrise().let {
             if (it.isSuccessful){
-                _getSunsetSunrisedata.postValue(it.body())
+                _getSunsetSunrisedata.postValue(UiState.Success(it.body()!!))
             }else{
                 Log.d(TAG, "getSunsetSunrise: ${it.code()}")
             }
