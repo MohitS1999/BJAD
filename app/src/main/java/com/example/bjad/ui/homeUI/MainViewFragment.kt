@@ -42,6 +42,9 @@ class MainViewFragment : Fragment() {
         setUserName()
         setSunsetSunriseTime()
 
+        binding.photos.setOnClickListener(){
+            findNavController().navigate(R.id.action_mainViewFragment_to_photosFragment,Bundle().apply {  })
+        }
     }
 
     private fun setUserName() {

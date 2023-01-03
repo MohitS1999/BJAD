@@ -5,6 +5,8 @@ import com.example.bjad.repository.authRepository.AuthRepository
 import com.example.bjad.repository.authRepository.AuthRepositoryImp
 import com.example.bjad.repository.mainRepository.MainRepository
 import com.example.bjad.repository.mainRepository.MainRepositoryImp
+import com.example.bjad.repository.photosRepository.PhotosRepository
+import com.example.bjad.repository.photosRepository.PhotosRepositoryImp
 import com.example.bjad.util.SunsetSunriseBase_url
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -39,7 +41,13 @@ object RepositoryModule {
         return MainRepositoryImp(auth,database,sunsetSunriseApi)
     }
 
-
+    @Provides
+    @Singleton
+    fun providesPhotosRepository(
+        database: FirebaseFirestore
+    ):PhotosRepository{
+        return PhotosRepositoryImp(database)
+    }
 
 
 }

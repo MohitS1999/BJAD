@@ -45,5 +45,14 @@
         android:id="@+id/mainViewFragment"
         android:name="com.example.bjad.ui.homeUI.MainViewFragment"
         android:label="fragment_main_view"
-        tools:layout="@layout/fragment_main_view" />
+        tools:layout="@layout/fragment_main_view" >
+        <action
+            android:id="@+id/action_mainViewFragment_to_photosFragment"
+            app:destination="@id/photosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photosFragment"
+        android:name="com.example.bjad.ui.photos.PhotosFragment"
+        android:label="fragment_photos"
+        tools:layout="@layout/fragment_photos" />
 </navigation>
