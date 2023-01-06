@@ -6,13 +6,11 @@
     android:background="@color/white">
 
 
-    <ImageView
+    <com.example.bjad.util.ZoomImage
         android:id="@+id/fullImageViewId"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/_100sdp"
-        android:layout_marginBottom="@dimen/_100sdp"/>
+        android:layout_centerInParent="true"/>
 
 
 </RelativeLayout>
