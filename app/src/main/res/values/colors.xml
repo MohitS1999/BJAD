@@ -18,4 +18,9 @@
     <color name="dashboard_item_2">#4DE9C9</color>
     <color name="dashboard_item_3">#72A4FF</color>
     <color name="dashboard_item_4">#8B72FF</color>
+
+    <color name="cool_blue">#0091EA</color>
+    <color name="cool_green">#64DD17</color>
+    <color name="cool_pink">#F50057</color>
+    <color name="yellow">#FFD600</color>
 </resources>

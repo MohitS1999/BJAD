@@ -33,6 +33,7 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         observer()
         binding.signInBtn.setOnClickListener {
             if (validation()){

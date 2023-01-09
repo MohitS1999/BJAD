@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".ui.audioSongs.PlayerFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_icon"
+            android:background="@color/tansparentColor"
+            android:layout_marginLeft="@dimen/_10sdp"
+            app:tint="@color/black"
+            android:layout_gravity="center"
+            android:contentDescription="BACK"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Bhakti Songs"
+            android:textColor="@color/black"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:textSize="@dimen/_20sdp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/favorite_empty_icon"
+            android:background="@color/tansparentColor"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/_15sdp"
+            app:tint="@android:color/holo_red_dark"
+            android:contentDescription="favorite"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_margin="@dimen/_10sdp"
+        app:shapeAppearanceOverlay="@style/curved"
+        app:strokeColor="@color/cool_blue"
+        app:strokeWidth="@dimen/_2sdp"
+        android:src="@drawable/songs"/>
+
+    <TextView
+        android:id="@+id/songName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:text="Song Name"
+        android:textSize="@dimen/_18ssp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_10sdp"
+        android:gravity="center"
+        android:layout_weight="1">
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/previous_icon"
+            app:iconTint="@color/white"
+            app:iconSize="@dimen/_40sdp"/>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/pause_icon"
+            app:iconSize="@dimen/_50sdp"
+            android:layout_marginHorizontal="@dimen/_25sdp"
+            app:shapeAppearanceOverlay="@style/curved"
+            app:iconTint="@color/white"
+            android:backgroundTint="@color/pinkColor"/>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/next_icon"
+            app:iconTint="@color/white"
+            app:iconSize="@dimen/_40sdp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_25sdp"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_20sdp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/startTime"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp"
+            android:gravity="center"
+            android:text="00:00"/>
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/endTime"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="loading"
+            android:textSize="@dimen/_10ssp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/repeat"
+            android:background="@color/tansparentColor"
+            app:tint="@color/cool_pink"
+            android:contentDescription="repeat"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/equalizer"
+            android:background="@color/tansparentColor"
+            app:tint="@color/cool_pink"
+            android:contentDescription="equalizer"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/timer_icon"
+            android:background="@color/tansparentColor"
+            app:tint="@color/cool_pink"
+            android:contentDescription="timer"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/share_icon"
+            android:background="@color/tansparentColor"
+            app:tint="@color/cool_pink"
+            android:contentDescription="share"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

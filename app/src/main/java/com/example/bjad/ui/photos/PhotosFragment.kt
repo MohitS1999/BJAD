@@ -52,17 +52,8 @@ class PhotosFragment : Fragment() {
         viewModel.getphotos.observe(viewLifecycleOwner){
             when(it){
                 is UiState.Success -> {
-
                     for (data in it.data) photosList.add(data)
-                    photosRecyclerView = binding.photosRecyclerView
-                    photosRecyclerView.setHasFixedSize(true)
-                    photoAdapter = PhotosAdapter(photosList,::onPhotoClicked)
-                    // on below line we are setting layout manager for our recycler view
-                    val staggeredGridLayoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
-                    photosRecyclerView.layoutManager = staggeredGridLayoutManager
-                    photosRecyclerView.adapter = photoAdapter
-                    photoAdapter.notifyDataSetChanged()
-                    //Log.d(TAG, "observePhotos: $photosList")
+                    updateRecyclerView()
                 }
                 is UiState.Failure -> {
                     //TODO
@@ -72,6 +63,20 @@ class PhotosFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun updateRecyclerView() {
+
+        photosRecyclerView = binding.photosRecyclerView
+        // for
+        photosRecyclerView.setHasFixedSize(true)
+        photoAdapter = PhotosAdapter(photosList,::onPhotoClicked)
+        // on below line we are setting layout manager for our recycler view
+        val staggeredGridLayoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
+        photosRecyclerView.layoutManager = staggeredGridLayoutManager
+        photosRecyclerView.adapter = photoAdapter
+        photoAdapter.notifyDataSetChanged()
+
     }
 
     private fun onPhotoClicked(list: ArrayList<String>,position: Int){

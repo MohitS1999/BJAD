@@ -45,6 +45,9 @@ class MainViewFragment : Fragment() {
         binding.photos.setOnClickListener(){
             findNavController().navigate(R.id.action_mainViewFragment_to_photosFragment,Bundle().apply {  })
         }
+        binding.audioSongs.setOnClickListener(){
+            findNavController().navigate(R.id.action_mainViewFragment_to_audioFragment,Bundle().apply {  })
+        }
     }
 
     private fun setUserName() {
