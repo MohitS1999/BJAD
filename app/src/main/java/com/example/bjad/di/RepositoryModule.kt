@@ -7,6 +7,8 @@ import com.example.bjad.repository.mainRepository.MainRepository
 import com.example.bjad.repository.mainRepository.MainRepositoryImp
 import com.example.bjad.repository.photosRepository.PhotosRepository
 import com.example.bjad.repository.photosRepository.PhotosRepositoryImp
+import com.example.bjad.repository.songsRepository.SongsRepository
+import com.example.bjad.repository.songsRepository.SongsRepositoryImp
 import com.example.bjad.util.SunsetSunriseBase_url
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -47,6 +49,14 @@ object RepositoryModule {
         database: FirebaseFirestore
     ):PhotosRepository{
         return PhotosRepositoryImp(database)
+    }
+
+    @Provides
+    @Singleton
+    fun providesSongsRepository(
+        database: FirebaseFirestore
+    ):SongsRepository{
+        return SongsRepositoryImp(database)
     }
 
 

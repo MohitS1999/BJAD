@@ -32,7 +32,7 @@ class PhotosViewModel @Inject constructor(
         _getphotos.value = UiState.Loading
         viewModelScope.launch(Dispatchers.IO) {
             repository.getPhotos {
-                Log.d(TAG, "getAllPhotos: "+it)
+                Log.d(TAG, "getAllPhotos: "+"Getting the data from repository")
                 _getphotos.value = it
             }
         }
