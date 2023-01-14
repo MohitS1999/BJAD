@@ -48,6 +48,7 @@
     </LinearLayout>
 
     <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgPLY"
         android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_200sdp"
         android:layout_margin="@dimen/_10sdp"
@@ -57,7 +58,7 @@
         android:src="@drawable/songs"/>
 
     <TextView
-        android:id="@+id/songName"
+        android:id="@+id/songNamePLY"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_20sdp"
@@ -76,6 +77,7 @@
         android:layout_weight="1">
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/prevBtnPLY"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:icon="@drawable/previous_icon"
@@ -83,6 +85,7 @@
             app:iconSize="@dimen/_40sdp"/>
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/playPauseBtnPLY"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:icon="@drawable/pause_icon"
@@ -93,6 +96,7 @@
             android:backgroundTint="@color/pinkColor"/>
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/nextBtnPLY"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:icon="@drawable/next_icon"

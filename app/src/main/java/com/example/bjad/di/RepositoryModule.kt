@@ -1,5 +1,6 @@
 package com.example.bjad.di
 
+import android.media.MediaPlayer
 import com.example.bjad.api.SunsetSunriseApi
 import com.example.bjad.repository.authRepository.AuthRepository
 import com.example.bjad.repository.authRepository.AuthRepositoryImp

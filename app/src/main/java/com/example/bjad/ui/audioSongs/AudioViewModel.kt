@@ -1,5 +1,6 @@
 package com.example.bjad.ui.audioSongs
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,6 +12,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.math.log
 
 private const val TAG = "AudioViewModel"
 @HiltViewModel
@@ -24,11 +26,26 @@ class AudioViewModel @Inject constructor(
         get() = _getSongs
 
 
-    init {
-        getAllSongs()
-    }
 
-    private fun getAllSongs() {
+
+
+
+
+    /*fun playSong(
+        url:String
+    ){
+        _playSong.value = UiState.Loading
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.playSong(
+                url = url
+            ){
+                Log.d(TAG, "playSong: $it")
+                _playSong.value = it
+            }
+        }
+    }*/
+
+    fun getAllSongs() {
         _getSongs.value = UiState.Loading
         viewModelScope.launch(Dispatchers.IO) {
             repository.getSongs {
@@ -36,4 +53,5 @@ class AudioViewModel @Inject constructor(
             }
         }
     }
+
 }

@@ -20,8 +20,8 @@ private const val TAG = "LoginFragment"
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
 
-    lateinit var binding: FragmentLoginBinding
-    val viewModel:AuthViewModel by viewModels()
+    private lateinit var binding: FragmentLoginBinding
+    private val viewModel:AuthViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

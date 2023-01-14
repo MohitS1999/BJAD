@@ -38,17 +38,27 @@ class AudioFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         musicDataList = ArrayList()
         observerSongs()
-
+        viewModel.getAllSongs()
         binding.favoriteBtn.setOnClickListener {
+
             findNavController().navigate(R.id.action_audioFragment_to_favoriteFragment,Bundle().apply {  })
         }
         binding.playlistBtn.setOnClickListener {
             findNavController().navigate(R.id.action_audioFragment_to_playlistFragment,Bundle().apply {  })
         }
         binding.shuffleBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_audioFragment_to_playerFragment,Bundle().apply {  })
+            callShuffleFragment()
+
         }
 
+    }
+
+    private fun callShuffleFragment() {
+        val bundle = Bundle()
+        bundle.putString("onCallShuffle","shuffle")
+        bundle.putSerializable("musicList",musicDataList as java.io.Serializable)
+        bundle.putInt("position",0)
+        findNavController().navigate(R.id.action_audioFragment_to_playerFragment,bundle)
     }
 
     private fun observerSongs() {
@@ -72,9 +82,17 @@ class AudioFragment : Fragment() {
         binding.songsRecyclerView.setHasFixedSize(true)
         binding.songsRecyclerView.setItemViewCacheSize(20)
         binding.songsRecyclerView.layoutManager = LinearLayoutManager(context)
-        musicAdapter = MusicAdapter(requireActivity(),musicDataList)
+        musicAdapter = MusicAdapter(requireActivity(),musicDataList,::onSongClicked)
         binding.songsRecyclerView.adapter = musicAdapter
         binding.totalSongs.text = "Total Songs : "+musicDataList.size
+
+    }
+    private fun onSongClicked(list:ArrayList<MusicData>,position:Int){
+        val bundle = Bundle()
+        bundle.putString("onSongClicked","songs")
+        bundle.putSerializable("musicList",list as java.io.Serializable)
+        bundle.putInt("position",position)
+        findNavController().navigate(R.id.action_audioFragment_to_playerFragment,bundle)
 
     }
 

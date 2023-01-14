@@ -11,7 +11,8 @@ import com.example.bjad.databinding.MusicViewBinding
 
 class MusicAdapter(
     private val context: Context,
-    private val musicList:ArrayList<MusicData>
+    private val musicList:ArrayList<MusicData>,
+    private val onSongClicked: (ArrayList<MusicData>,Int) -> Unit
 ): RecyclerView.Adapter<MusicAdapter.MyHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
@@ -29,7 +30,9 @@ class MusicAdapter(
             .into(holder.songImage)
         holder.title.text = musicdata.songName
         holder.duration.text = musicdata.time.toString()
-
+        holder.itemView.setOnClickListener{
+            onSongClicked(musicList,position)
+        }
 
     }
 
