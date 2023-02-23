@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/spashScreen">
 
     <fragment
         android:id="@+id/registerFragment2"
@@ -116,4 +116,16 @@
         android:name="com.example.bjad.ui.video.PlayerActivity"
         android:label="activity_player"
         tools:layout="@layout/activity_player" />
+    <fragment
+        android:id="@+id/spashScreen"
+        android:name="com.example.bjad.ui.SpashScreen"
+        android:label="fragment_spash_screen"
+        tools:layout="@layout/fragment_spash_screen" >
+        <action
+            android:id="@+id/action_spashScreen_to_mainViewFragment"
+            app:destination="@id/mainViewFragment" />
+        <action
+            android:id="@+id/action_spashScreen_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

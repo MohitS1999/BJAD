@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bjad.Model.Results
@@ -38,6 +39,14 @@ class MainViewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // for go back to home page of phone
+        val callback = object: OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                activity?.moveTaskToBack(true)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,callback)
+
         Log.d(TAG, "onViewCreated: ")
         setUserName()
         setSunsetSunriseTime()

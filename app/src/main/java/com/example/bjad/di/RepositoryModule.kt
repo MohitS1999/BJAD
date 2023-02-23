@@ -12,6 +12,7 @@ import com.example.bjad.repository.songsRepository.SongsRepository
 import com.example.bjad.repository.songsRepository.SongsRepositoryImp
 import com.example.bjad.repository.videoRepository.VideoRepository
 import com.example.bjad.repository.videoRepository.VideoRepositoryImp
+import com.example.bjad.ui.SpashScreen
 import com.example.bjad.util.SunsetSunriseBase_url
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -70,4 +71,5 @@ object RepositoryModule {
     ) : VideoRepository {
         return VideoRepositoryImp(database)
     }
+
 }

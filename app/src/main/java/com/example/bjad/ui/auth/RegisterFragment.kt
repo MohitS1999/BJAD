@@ -47,6 +47,7 @@ class RegisterFragment : Fragment() {
         binding.logInlabel.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment2_to_loginFragment,Bundle().apply {  })
         }
+        
     }
 
     fun validation(): Boolean {

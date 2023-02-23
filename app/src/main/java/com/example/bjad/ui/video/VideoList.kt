@@ -48,6 +48,8 @@ class VideoList : Fragment() {
 
     }
 
+
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.search_view,menu)
         val searchView = menu.findItem(R.id.seachView)?.actionView as SearchView
