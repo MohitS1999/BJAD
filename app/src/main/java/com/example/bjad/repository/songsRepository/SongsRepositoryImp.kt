@@ -56,14 +56,17 @@ class SongsRepositoryImp(
         Log.d(TAG, "initSong: ${mediaPlayer.isPlaying}")
         if (mediaPlayer.isPlaying){
             Log.d(TAG, "initSong: ----- ${mediaPlayer.isPlaying}")
-            mediaPlayer.stop()
+            //mediaPlayer.stop()
             mediaPlayer.reset()
         }
 
         mediaPlayer.setDataSource(url)
-        mediaPlayer.prepare()
-        mediaPlayer.start()
+        mediaPlayer.prepareAsync()
+
+        mediaPlayer.setOnPreparedListener {
+            it.start()
         }
+    }
 
     override fun play() {
         mediaPlayer.start()

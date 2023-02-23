@@ -23,4 +23,6 @@
     <color name="cool_green">#64DD17</color>
     <color name="cool_pink">#F50057</color>
     <color name="yellow">#FFD600</color>
+
+    <color name="grey">#A9A9A9</color>
 </resources>

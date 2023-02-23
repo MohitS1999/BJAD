@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_mainViewFragment_to_audioFragment"
             app:destination="@id/audioFragment" />
+        <action
+            android:id="@+id/action_mainViewFragment_to_videoList2"
+            app:destination="@id/videoList2" />
     </fragment>
     <fragment
         android:id="@+id/photosFragment"
@@ -97,4 +100,20 @@
             android:id="@+id/action_audioFragment_to_playlistFragment"
             app:destination="@id/playlistFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/videoList2"
+        android:name="com.example.bjad.ui.video.VideoList"
+        android:label="fragment_video_list"
+        tools:layout="@layout/fragment_video_list" >
+
+        <action
+            android:id="@+id/action_videoList2_to_playerActivity"
+            app:destination="@id/playerActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/playerActivity"
+        android:name="com.example.bjad.ui.video.PlayerActivity"
+        android:label="activity_player"
+        tools:layout="@layout/activity_player" />
 </navigation>

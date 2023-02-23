@@ -10,6 +10,8 @@ import com.example.bjad.repository.photosRepository.PhotosRepository
 import com.example.bjad.repository.photosRepository.PhotosRepositoryImp
 import com.example.bjad.repository.songsRepository.SongsRepository
 import com.example.bjad.repository.songsRepository.SongsRepositoryImp
+import com.example.bjad.repository.videoRepository.VideoRepository
+import com.example.bjad.repository.videoRepository.VideoRepositoryImp
 import com.example.bjad.util.SunsetSunriseBase_url
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -61,4 +63,11 @@ object RepositoryModule {
     }
 
 
+    @Provides
+    @Singleton
+    fun providesVideoSongsRepository(
+        database:FirebaseFirestore
+    ) : VideoRepository {
+        return VideoRepositoryImp(database)
+    }
 }
