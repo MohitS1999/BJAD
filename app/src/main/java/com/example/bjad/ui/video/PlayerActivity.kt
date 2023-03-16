@@ -32,7 +32,6 @@ import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
-import kotlin.math.log
 
 private const val TAG = "PlayerActivity"
 class PlayerActivity : AppCompatActivity(), AudioManager.OnAudioFocusChangeListener,
@@ -152,12 +151,12 @@ class PlayerActivity : AppCompatActivity(), AudioManager.OnAudioFocusChangeListe
     }
 
     private fun playVideo() {
-        binding.playPauseBtn.setImageResource(R.drawable.pause_icon)
+        binding.playPauseBtn.setImageResource(R.drawable.pause_video_icon)
         exoPlayer.play()
     }
 
     private fun pauseVideo() {
-        binding.playPauseBtn.setImageResource(R.drawable.play_icon)
+        binding.playPauseBtn.setImageResource(R.drawable.play_video_icon)
         exoPlayer.pause()
     }
 

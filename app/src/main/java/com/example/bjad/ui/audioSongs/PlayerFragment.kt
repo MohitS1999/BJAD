@@ -70,7 +70,7 @@ class PlayerFragment : Fragment() {
         setContentLayout()
         viewModel.initSong(musicData.get(position).songUrl)
         isPlaying  = true
-        binding.playPauseBtnPLY.setIconResource(R.drawable.pause_icon)
+        binding.playPauseBtnPLY.setIconResource(R.drawable.pause_video_icon)
     }
 
     private fun setContentLayout() {
@@ -84,13 +84,13 @@ class PlayerFragment : Fragment() {
     }
 
     private fun playMusic(){
-        binding.playPauseBtnPLY.setIconResource(R.drawable.pause_icon)
+        binding.playPauseBtnPLY.setIconResource(R.drawable.pause_video_icon)
         isPlaying = true
         viewModel.playMusic()
     }
 
     private fun pauseMusic(){
-        binding.playPauseBtnPLY.setIconResource(R.drawable.play_icon)
+        binding.playPauseBtnPLY.setIconResource(R.drawable.play_video_icon)
         isPlaying = false
         viewModel.pauseMusic()
     }

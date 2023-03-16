@@ -88,7 +88,7 @@
             android:id="@+id/playPauseBtnPLY"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:icon="@drawable/pause_icon"
+            app:icon="@drawable/pause_video_icon"
             app:iconSize="@dimen/_50sdp"
             android:layout_marginHorizontal="@dimen/_25sdp"
             app:shapeAppearanceOverlay="@style/curved"

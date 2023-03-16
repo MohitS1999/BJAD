@@ -41,7 +41,7 @@ class FullImageViewPagerAdapter(val context: Context, val imageList:ArrayList<St
             .load(imageList.get(position))
             .fitCenter()
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-            .error(com.google.android.material.R.drawable.mtrl_ic_error)
+            .error(R.drawable.error_icon)
             .into(imageView)
 
         Objects.requireNonNull(container).addView(itemView)

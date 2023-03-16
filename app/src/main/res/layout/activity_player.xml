@@ -130,7 +130,7 @@
         android:clickable="true"
         android:contentDescription="@string/play_btn"
         android:focusable="true"
-        android:src="@drawable/play_icon"
+        android:src="@drawable/play_video_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
