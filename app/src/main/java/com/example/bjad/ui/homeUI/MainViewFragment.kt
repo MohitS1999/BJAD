@@ -55,7 +55,7 @@ class MainViewFragment : Fragment() {
             findNavController().navigate(R.id.action_mainViewFragment_to_photosFragment,Bundle().apply {  })
         }
         binding.audioSongs.setOnClickListener(){
-            findNavController().navigate(R.id.action_mainViewFragment_to_audioFragment,Bundle().apply {  })
+            findNavController().navigate(R.id.action_mainViewFragment_to_audioActivity,Bundle().apply {  })
         }
         binding.videoSongs.setOnClickListener(){
             findNavController().navigate(R.id.action_mainViewFragment_to_videoList2,Bundle().apply {  })

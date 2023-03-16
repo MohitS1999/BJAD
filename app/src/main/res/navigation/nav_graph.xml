@@ -50,11 +50,11 @@
             android:id="@+id/action_mainViewFragment_to_photosFragment"
             app:destination="@id/photosFragment" />
         <action
-            android:id="@+id/action_mainViewFragment_to_audioFragment"
-            app:destination="@id/audioFragment" />
-        <action
             android:id="@+id/action_mainViewFragment_to_videoList2"
             app:destination="@id/videoList2" />
+        <action
+            android:id="@+id/action_mainViewFragment_to_audioActivity"
+            app:destination="@id/audioActivity" />
     </fragment>
     <fragment
         android:id="@+id/photosFragment"
@@ -70,36 +70,6 @@
         android:name="com.example.bjad.ui.photos.FullImageFragment"
         android:label="fragment_full_image"
         tools:layout="@layout/fragment_full_image" />
-    <fragment
-        android:id="@+id/favoriteFragment"
-        android:name="com.example.bjad.ui.audioSongs.FavoriteFragment"
-        android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
-    <fragment
-        android:id="@+id/playerFragment"
-        android:name="com.example.bjad.ui.audioSongs.PlayerFragment"
-        android:label="fragment_player"
-        tools:layout="@layout/fragment_player" />
-    <fragment
-        android:id="@+id/playlistFragment"
-        android:name="com.example.bjad.ui.audioSongs.PlaylistFragment"
-        android:label="fragment_playlist"
-        tools:layout="@layout/fragment_playlist" />
-    <fragment
-        android:id="@+id/audioFragment"
-        android:name="com.example.bjad.ui.audioSongs.AudioFragment"
-        android:label="fragment_audio"
-        tools:layout="@layout/fragment_audio" >
-        <action
-            android:id="@+id/action_audioFragment_to_favoriteFragment"
-            app:destination="@id/favoriteFragment" />
-        <action
-            android:id="@+id/action_audioFragment_to_playerFragment"
-            app:destination="@id/playerFragment" />
-        <action
-            android:id="@+id/action_audioFragment_to_playlistFragment"
-            app:destination="@id/playlistFragment" />
-    </fragment>
 
     <fragment
         android:id="@+id/videoList2"
@@ -128,4 +98,9 @@
             android:id="@+id/action_spashScreen_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <activity
+        android:id="@+id/audioActivity"
+        android:name="com.example.bjad.ui.audio.AudioActivity"
+        android:label="activity_audio"
+        tools:layout="@layout/activity_audio" />
 </navigation>
