@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.bjad.Model.MusicData
 import com.example.bjad.databinding.MusicListViewBinding
-import com.example.bjad.databinding.MusicViewBinding
 
 private const val TAG = "VideoSongAdapter"
 class MusicAdapter(

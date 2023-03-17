@@ -9,5 +9,14 @@
         android:id="@+id/musicHome"
         android:name="com.example.bjad.ui.audio.MusicHome"
         android:label="fragment_music_home"
-        tools:layout="@layout/fragment_music_home" />
+        tools:layout="@layout/fragment_music_home" >
+        <action
+            android:id="@+id/action_musicHome_to_musicPlayer"
+            app:destination="@id/musicPlayer" />
+    </fragment>
+    <fragment
+        android:id="@+id/musicPlayer"
+        android:name="com.example.bjad.ui.audio.MusicPlayer"
+        android:label="fragment_music_player"
+        tools:layout="@layout/fragment_music_player" />
 </navigation>

@@ -116,22 +116,20 @@ class MusicHome : Fragment() {
         bundle.putInt("pos",pos)
         bundle.putSerializable("musicList",list as java.io.Serializable)
         Log.d(TAG, "onSongClicked: $pos ----- $list")
-        //findNavController().navigate(R.id.action_musicHome_to_musicPlayer,bundle)
+        findNavController().navigate(R.id.action_musicHome_to_musicPlayer,bundle)
     }
 
-    /*override fun onDestroy() {
+    override fun onDestroy() {
         super.onDestroy()
-        Log.d(TAG, "onDestroy: ${PlayerViewModel.musicService!!.mediaPlayer}")
         if (!MusicPlayer.isPlaying && PlayerViewModel.musicService != null){
             PlayerViewModel.musicService!!.audioManager.abandonAudioFocus(PlayerViewModel.musicService)
             PlayerViewModel.musicService!!.stopForeground(true)
             PlayerViewModel.musicService!!.mediaPlayer!!.release()
+            PlayerViewModel.musicService!!.mediaPlayer = null
             PlayerViewModel.musicService = null
-
-            exitProcess(1)
         }
         Log.d(TAG, "onDestroy: ")
-    }*/
+    }
 
 
 
