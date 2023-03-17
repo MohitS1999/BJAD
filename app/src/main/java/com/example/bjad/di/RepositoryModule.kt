@@ -6,6 +6,8 @@ import com.example.bjad.repository.authRepository.AuthRepository
 import com.example.bjad.repository.authRepository.AuthRepositoryImp
 import com.example.bjad.repository.mainRepository.MainRepository
 import com.example.bjad.repository.mainRepository.MainRepositoryImp
+import com.example.bjad.repository.musicRepository.MusicRepository
+import com.example.bjad.repository.musicRepository.MusicRepositoryImp
 import com.example.bjad.repository.photosRepository.PhotosRepository
 import com.example.bjad.repository.photosRepository.PhotosRepositoryImp
 import com.example.bjad.repository.songsRepository.SongsRepository
@@ -59,8 +61,8 @@ object RepositoryModule {
     @Singleton
     fun providesSongsRepository(
         database: FirebaseFirestore
-    ):SongsRepository{
-        return SongsRepositoryImp(database)
+    ):MusicRepository{
+        return MusicRepositoryImp(database)
     }
 
 

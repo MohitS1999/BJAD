@@ -4,9 +4,14 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 
+private const val TAG = "MusicData"
 data class MusicData(
     val songName:String = "",
     val songUrl:String = "",
     val imageUrl:String ="",
-    val time:Long = 0
-)
+    val singerName:String ="",
+    val time:String ="",
+    var isFavourite: Boolean = false
+) : java.io.Serializable
+
+

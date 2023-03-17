@@ -6,7 +6,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.bjad.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AudioActivity : AppCompatActivity() {
     private lateinit var audioNavController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
