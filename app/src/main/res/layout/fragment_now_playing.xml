@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_45sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/text_color"
+    tools:context=".ui.audio.NowPlaying">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/songImpNP"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginVertical="@dimen/_5sdp"
+        app:shapeAppearanceOverlay="@style/curved"
+        android:src="@drawable/jmdphoto"
+        android:scaleType="fitXY"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/nextBtnNP"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:backgroundTint="@color/text_color"
+        android:clickable="true"
+        android:focusable="true"
+        app:icon="@drawable/next_music_icon"
+        app:iconSize="@dimen/_40sdp"
+        app:iconTint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/playPauseBtnNP"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:backgroundTint="@color/text_color"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginVertical="@dimen/_5sdp"
+        app:icon="@drawable/pause_pa_icon"
+        app:iconSize="@dimen/_40sdp"
+        app:iconTint="@color/white"
+        android:layout_toStartOf="@id/nextBtnNP"
+        android:layout_centerVertical="true"
+        />
+
+    <TextView
+        android:id="@+id/songMusicNamePA"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_43sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="13dp"
+        android:layout_toStartOf="@id/playPauseBtnNP"
+        android:layout_toEndOf="@id/songImpNP"
+        android:ellipsize="marquee"
+        android:gravity="start"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:text="song name sdnjskfdsjdfnjkdsfn "
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold" />
+
+
+
+</RelativeLayout>
+
+

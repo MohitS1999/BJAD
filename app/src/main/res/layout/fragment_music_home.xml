@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".ui.audio.MusicHome">
+
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        app:iconifiedByDefault="false"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:layout_marginVertical="@dimen/_3sdp"
+        android:background="@drawable/search_view_bg"
+        app:queryHint="Search here..."
+        android:focusable="true" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/musicRV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nowPlaying"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:name="com.example.bjad.ui.audio.NowPlaying"
+        tools:layout="@layout/fragment_now_playing"/>
+    <LinearLayout
+        android:id="@+id/bottom_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/shuffle_btn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="Shuffle"
+            android:drawableTop="@drawable/shuffle_icon"
+            android:drawableTint="@color/icon_color"
+            android:text="Shuffle"
+            android:drawablePadding="5dp"
+            android:textAllCaps="false"
+            android:textColor="@color/text_color"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/favoriteBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="Shuffle"
+            android:drawableTop="@drawable/favourite_bottom_icon"
+            android:drawableTint="@color/icon_color"
+            android:text="Favorite"
+            android:drawablePadding="5dp"
+            android:textAllCaps="false"
+            android:textColor="@color/text_color"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+

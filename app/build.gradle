@@ -115,6 +115,10 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.2'
     // for double tap exoplayer
     implementation 'com.github.vkay94:DoubleTapPlayerView:1.0.4'
+    //music player
+    implementation 'androidx.media:media:1.6.0'
+
+
 
 
 
