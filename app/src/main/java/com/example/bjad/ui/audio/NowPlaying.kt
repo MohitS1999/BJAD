@@ -81,6 +81,7 @@ class NowPlaying : Fragment() {
         }
     }
 
+
     private fun playMusic(){
         PlayerViewModel.musicService!!.mediaPlayer!!.start()
         binding.playPauseBtnNP.setIconResource(R.drawable.pause_pa_icon)

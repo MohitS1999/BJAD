@@ -294,5 +294,14 @@ class MusicPlayer : Fragment() {
         Log.d(TAG, "onDestroy: ")
     }
 
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume: ")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause: ")
+    }
 
 }

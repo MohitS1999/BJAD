@@ -18,5 +18,9 @@
         android:id="@+id/musicPlayer"
         android:name="com.example.bjad.ui.audio.MusicPlayer"
         android:label="fragment_music_player"
-        tools:layout="@layout/fragment_music_player" />
+        tools:layout="@layout/fragment_music_player" >
+        <action
+            android:id="@+id/action_musicPlayer_to_musicHome"
+            app:popUpTo="@id/musicHome" />
+    </fragment>
 </navigation>

@@ -17,6 +17,7 @@ import com.example.bjad.Model.MusicData
 import com.example.bjad.R
 import com.example.bjad.adapter.MusicAdapter
 import com.example.bjad.databinding.FragmentMusicHomeBinding
+import com.example.bjad.service.NotificationReceiver
 import com.example.bjad.util.UiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.system.exitProcess
@@ -33,6 +34,8 @@ class MusicHome : Fragment() {
     companion object{
         @SuppressLint("StaticFieldLeak")
         lateinit var binding: FragmentMusicHomeBinding
+
+
     }
 
     override fun onCreateView(
@@ -53,6 +56,7 @@ class MusicHome : Fragment() {
 
         observeSongs()
 
+
         binding.searchView.clearFocus()
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -60,7 +64,13 @@ class MusicHome : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                musicAdapter.filter.filter(newText.toString())
+                try{
+                    musicAdapter.filter.filter(newText.toString())
+                }catch (e:NullPointerException){
+                    Log.d(TAG, "onQueryTextChange: ${e.printStackTrace()}")
+                }
+
+
                 return false
             }
 
@@ -129,6 +139,16 @@ class MusicHome : Fragment() {
             PlayerViewModel.musicService = null
         }
         Log.d(TAG, "onDestroy: ")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume: ")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause: ")
     }
 
 

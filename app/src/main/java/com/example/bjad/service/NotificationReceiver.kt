@@ -5,18 +5,17 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.util.Log
+import android.view.View
 import androidx.annotation.RequiresApi
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.example.bjad.MainActivity
 import com.example.bjad.MyApplication
 import com.example.bjad.R
-import com.example.bjad.ui.audio.MusicPlayer
-import com.example.bjad.ui.audio.NowPlaying
-import com.example.bjad.ui.audio.PlayerViewModel
+import com.example.bjad.ui.audio.*
 import com.example.bjad.util.formatDuration
 import com.example.bjad.util.getBitmapFromUrl
 import com.example.bjad.util.setSongPosition
-import kotlin.system.exitProcess
 
 private const val TAG = "NotificationReceiver"
 
@@ -36,6 +35,16 @@ class NotificationReceiver : BroadcastReceiver() {
                 PlayerViewModel.musicService!!.mediaPlayer = null
                 PlayerViewModel.musicService!!.stopForeground(true)
                 PlayerViewModel.musicService = null
+                val intent = Intent(context, MainActivity::class.java)
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                context!!.startActivity(intent)
+
+                /*val intent = Intent(context,MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                if (context != null) {
+                    context.startActivity(intent)
+                }*/
             }
         }
 
