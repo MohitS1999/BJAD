@@ -66,7 +66,9 @@ class PlayerViewModel @Inject constructor() : ViewModel(), MediaPlayer.OnComplet
 
     fun createMediaPlayer(url: String) {
         _firstSong.postValue(UiState.Loading)
+        
         try {
+            Log.d(TAG, "createMediaPlayer: $musicService")
             if (musicService!!.mediaPlayer == null) {
                 Log.d(TAG, "createMediaPlayer: mediaplayer creating")
                 musicService?.mediaPlayer = MediaPlayer().apply {

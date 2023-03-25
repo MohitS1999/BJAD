@@ -9,18 +9,37 @@
     android:id="@+id/musicHomeLL"
     tools:context=".ui.audio.MusicHome">
 
-
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchView"
-        app:iconifiedByDefault="false"
-        android:focusableInTouchMode="true"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_5sdp"
-        android:layout_marginVertical="@dimen/_3sdp"
-        android:background="@drawable/search_view_bg"
-        app:queryHint="Search here..."
-        android:focusable="true" />
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/backMusicHomeBtn"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/back_btn"
+            android:src="@drawable/back_icon"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:paddingStart="@dimen/_10sdp"
+            app:tint="@color/text_color" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            app:iconifiedByDefault="false"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_marginVertical="@dimen/_3sdp"
+            android:background="@drawable/search_view_bg"
+            app:queryHint="Search here..."
+            android:focusable="true" />
+
+    </LinearLayout>
+
+
 
 
     <androidx.recyclerview.widget.RecyclerView

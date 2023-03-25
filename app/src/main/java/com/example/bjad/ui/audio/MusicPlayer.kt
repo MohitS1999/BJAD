@@ -53,6 +53,7 @@ class MusicPlayer : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        Log.d(TAG, "onCreateView: ")
         binding = FragmentMusicPlayerBinding.inflate(layoutInflater)
         viewModel.bindToService()
         return binding.root
@@ -169,6 +170,7 @@ class MusicPlayer : Fragment() {
                 ).show()
             }
         }
+
 
 
         binding.backPlayerBtn.setOnClickListener { findNavController().popBackStack() }

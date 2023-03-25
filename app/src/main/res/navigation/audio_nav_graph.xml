@@ -23,4 +23,6 @@
             android:id="@+id/action_musicPlayer_to_musicHome"
             app:popUpTo="@id/musicHome" />
     </fragment>
+
+
 </navigation>

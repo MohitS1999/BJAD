@@ -31,6 +31,7 @@ class NotificationReceiver : BroadcastReceiver() {
                 else playMusic()
             }
             MyApplication.EXIT -> {
+                Log.d(TAG, "onReceive: Exit")
                 PlayerViewModel.musicService!!.mediaPlayer!!.release()
                 PlayerViewModel.musicService!!.mediaPlayer = null
                 PlayerViewModel.musicService!!.stopForeground(true)

@@ -193,8 +193,13 @@ class MusicService : Service(), AudioManager.OnAudioFocusChangeListener {
         } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
             // Stop music playback here
             Log.d(TAG, "onAudioFocusChange: AUDIOFOCUS_LOSS")
-            MusicPlayer.isPlaying = false;
-            releaseMusicMemory()
+            MusicPlayer.binding.playPauseMusicBtn.setImageResource(R.drawable.play_music_icon)
+            NowPlaying.binding.playPauseBtnNP.setIconResource(R.drawable.play_pa_icon)
+            showNotification(R.drawable.play_music_icon)
+            MusicPlayer.isPlaying = false
+            mediaPlayer!!.pause()
+            // this is creating the problem when we tried to play the song again after killing the activity
+            //releaseMusicMemory()
 
         } else if (focusChange ==
             AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
@@ -211,6 +216,7 @@ class MusicService : Service(), AudioManager.OnAudioFocusChangeListener {
 
     //for making persistent
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        Log.d(TAG, "onStartCommand: ")
         return START_STICKY
     }
 

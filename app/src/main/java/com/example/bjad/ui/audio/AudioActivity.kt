@@ -19,12 +19,14 @@ class AudioActivity : AppCompatActivity() {
 
         val audioNavHost = supportFragmentManager
             .findFragmentById(R.id.audioFragmentContainerView) as NavHostFragment
-        audioNavController =audioNavHost.findNavController()
+        audioNavController = audioNavHost.findNavController()
+
+
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        finish()
+
         Log.d(TAG, "onDestroy: ")
     }
 }

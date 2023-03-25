@@ -44,7 +44,7 @@ class MusicHome : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
+        Log.d(TAG, "onCreateView: ")
         binding = FragmentMusicHomeBinding.inflate(layoutInflater)
         binding.nowPlaying.visibility = View.GONE
         return binding.root
@@ -53,7 +53,7 @@ class MusicHome : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         musicList = ArrayList()
-
+        Log.d(TAG, "onViewCreated: ")
 
         observeSongs()
 
@@ -76,6 +76,9 @@ class MusicHome : Fragment() {
             }
 
         })
+        binding.backMusicHomeBtn.setOnClickListener {
+            Toast.makeText(context, "need to be implement", Toast.LENGTH_SHORT).show()
+        }
         binding.shuffleBtn.setOnClickListener {
             val bundle = Bundle()
             bundle.putString("onShuffleClicked","shuffleSongs")
