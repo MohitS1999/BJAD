@@ -177,6 +177,7 @@ class PlayerViewModel @Inject constructor() : ViewModel(), MediaPlayer.OnComplet
             .into(MusicPlayer.binding.imagePlayer)
         MusicPlayer.binding.songNamePlayer.text = MusicPlayer.musicList.get(MusicPlayer.position).songName
         MusicPlayer.binding.singerNamePlayer.text = MusicPlayer.musicList.get(MusicPlayer.position).singerName
+        MusicPlayer.binding.playPauseMusicBtn.setImageResource(R.drawable.pause_music_icon)
         Log.d(TAG, "setContentLayout: finish")
     }
 

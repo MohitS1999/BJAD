@@ -19,6 +19,7 @@ import com.example.bjad.adapter.MusicAdapter
 import com.example.bjad.databinding.FragmentMusicHomeBinding
 import com.example.bjad.service.NotificationReceiver
 import com.example.bjad.util.UiState
+import com.example.bjad.util.releaseMusicMemory
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.system.exitProcess
 
@@ -132,11 +133,8 @@ class MusicHome : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         if (!MusicPlayer.isPlaying && PlayerViewModel.musicService != null){
-            PlayerViewModel.musicService!!.audioManager.abandonAudioFocus(PlayerViewModel.musicService)
-            PlayerViewModel.musicService!!.stopForeground(true)
-            PlayerViewModel.musicService!!.mediaPlayer!!.release()
-            PlayerViewModel.musicService!!.mediaPlayer = null
-            PlayerViewModel.musicService = null
+            // if the song is pause then it will release the memory of musicplayer and music service
+            releaseMusicMemory()
         }
         Log.d(TAG, "onDestroy: ")
     }

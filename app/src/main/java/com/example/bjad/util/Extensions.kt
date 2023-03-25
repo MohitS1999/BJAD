@@ -6,6 +6,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.bjad.ui.audio.MusicPlayer
+import com.example.bjad.ui.audio.PlayerViewModel
 import java.util.concurrent.TimeUnit
 
 
@@ -53,5 +54,13 @@ fun setSongPosition(increment: Boolean){
                 }
         }
 
+}
+
+fun releaseMusicMemory(){
+        PlayerViewModel.musicService!!.audioManager.abandonAudioFocus(PlayerViewModel.musicService)
+        PlayerViewModel.musicService!!.stopForeground(true)
+        PlayerViewModel.musicService!!.mediaPlayer!!.release()
+        PlayerViewModel.musicService!!.mediaPlayer = null
+        PlayerViewModel.musicService = null
 }
 

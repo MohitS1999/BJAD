@@ -32,15 +32,17 @@ class MusicPlayer : Fragment() {
 
 
     private val viewModel by viewModels<PlayerViewModel>()
+
     companion object {
         lateinit var musicList: ArrayList<MusicData>
         var position: Int = 0
         val clickOnSongs: String = "songs"
         val clickOnShuffle: String = "shuffleSongs"
-        val clickOnNowPlayer:String = "nowplaying"
+        val clickOnNowPlayer: String = "nowplaying"
         var isPlaying: Boolean = false
-        var isFavourite:Boolean = false
+        var isFavourite: Boolean = false
         var repeat: Boolean = false
+
         @SuppressLint("StaticFieldLeak")
         lateinit var binding: FragmentMusicPlayerBinding
 
@@ -62,7 +64,8 @@ class MusicPlayer : Fragment() {
 
 
         if ((arguments?.getString("onSongClicked").equals(clickOnSongs)) ||
-            (arguments?.getString("onShuffleClicked").equals(clickOnShuffle))) {
+            (arguments?.getString("onShuffleClicked").equals(clickOnShuffle))
+        ) {
             viewModel.startMyService(requireContext())
             musicList = (arguments?.getSerializable("musicList") as? ArrayList<MusicData>)!!
             position = arguments?.getInt("pos")!!
@@ -71,26 +74,29 @@ class MusicPlayer : Fragment() {
         }
 
         //when we clicked on now playing fragment
-        if (arguments?.getString("onNowPlayedClicked").equals(clickOnNowPlayer)){
+        if (arguments?.getString("onNowPlayedClicked").equals(clickOnNowPlayer)) {
             Log.d(TAG, "sendDataToPlayerView: onNowPlayedClicked")
             viewModel.setContentLayout(requireContext())
-            if (isPlaying){
+            if (isPlaying) {
                 binding.playPauseMusicBtn.setImageResource(R.drawable.pause_music_icon)
-            }else{
+            } else {
                 binding.playPauseMusicBtn.setImageResource(R.drawable.play_music_icon)
             }
-            binding.seekBarStart.text = formatDuration(PlayerViewModel.musicService!!.mediaPlayer!!.currentPosition.toLong())
-            binding.seekBarEnd.text = formatDuration(PlayerViewModel.musicService!!.mediaPlayer!!.duration.toLong())
-            binding.seekBarPA.progress = PlayerViewModel.musicService!!.mediaPlayer!!.currentPosition
+            binding.seekBarStart.text =
+                formatDuration(PlayerViewModel.musicService!!.mediaPlayer!!.currentPosition.toLong())
+            binding.seekBarEnd.text =
+                formatDuration(PlayerViewModel.musicService!!.mediaPlayer!!.duration.toLong())
+            binding.seekBarPA.progress =
+                PlayerViewModel.musicService!!.mediaPlayer!!.currentPosition
             binding.seekBarPA.max = PlayerViewModel.musicService!!.mediaPlayer!!.duration
         }
 
         binding.favPlayerbtn.setOnClickListener {
-            if (isFavourite){
+            if (isFavourite) {
                 Log.d(TAG, "onViewCreated: favourite btn $isFavourite")
                 binding.favPlayerbtn.setImageResource(R.drawable.favorite_empty_music_icon)
                 isFavourite = false
-            }else{
+            } else {
                 Log.d(TAG, "onViewCreated: favourite btn $isFavourite")
                 binding.favPlayerbtn.setImageResource(R.drawable.favorite_music_icon)
                 isFavourite = true
@@ -126,24 +132,41 @@ class MusicPlayer : Fragment() {
         })
 
         binding.repeatBtnPA.setOnClickListener {
-            if (!repeat){
+            if (!repeat) {
                 repeat = true
-                binding.repeatBtnPA.setColorFilter(ContextCompat.getColor(requireContext(),R.color.icon_color))
-            }else{
+                binding.repeatBtnPA.setColorFilter(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.icon_color
+                    )
+                )
+            } else {
                 repeat = false
-                binding.repeatBtnPA.setColorFilter(ContextCompat.getColor(requireContext(),R.color.text_color))
+                binding.repeatBtnPA.setColorFilter(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.text_color
+                    )
+                )
             }
         }
 
         binding.equalizerBtnPA.setOnClickListener {
             try {
                 val EqIntent = Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL)
-                EqIntent.putExtra(AudioEffect.EXTRA_AUDIO_SESSION,PlayerViewModel.musicService!!.mediaPlayer!!.audioSessionId)
+                EqIntent.putExtra(
+                    AudioEffect.EXTRA_AUDIO_SESSION,
+                    PlayerViewModel.musicService!!.mediaPlayer!!.audioSessionId
+                )
                 EqIntent.putExtra(AudioEffect.EXTRA_PACKAGE_NAME, requireContext().packageName)
                 EqIntent.putExtra(AudioEffect.EXTRA_CONTENT_TYPE, AudioEffect.CONTENT_TYPE_MUSIC)
-                startActivityForResult(EqIntent,13)
-            }catch (e:Exception){
-                Toast.makeText(requireContext(),"Equalizer feature not supported ", Toast.LENGTH_SHORT).show()
+                startActivityForResult(EqIntent, 13)
+            } catch (e: Exception) {
+                Toast.makeText(
+                    requireContext(),
+                    "Equalizer feature not supported ",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -151,7 +174,6 @@ class MusicPlayer : Fragment() {
         binding.backPlayerBtn.setOnClickListener { findNavController().popBackStack() }
 
     }
-
 
 
     private fun sendDataToPlayerView() {
@@ -231,15 +253,16 @@ class MusicPlayer : Fragment() {
             viewModel.createMediaPlayer(musicList.get(position).songUrl)
         }
         viewModel.setContentLayout(requireContext())
-        if (repeat){
-            binding.repeatBtnPA.setColorFilter(ContextCompat.getColor(requireContext(),R.color.icon_color))
+        if (repeat) {
+            binding.repeatBtnPA.setColorFilter(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.icon_color
+                )
+            )
         }
-        // initializing the seek bar
-
-
         isPlaying = true
-        binding.playPauseMusicBtn.setImageResource(R.drawable.pause_music_icon)
-        Log.d(TAG, "initializeLayout: finsh")
+        Log.d(TAG, "initializeLayout: finsh $isPlaying")
     }
 
 
@@ -282,7 +305,7 @@ class MusicPlayer : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 13 || resultCode == Activity.RESULT_OK){
+        if (requestCode == 13 || resultCode == Activity.RESULT_OK) {
             return
         }
     }

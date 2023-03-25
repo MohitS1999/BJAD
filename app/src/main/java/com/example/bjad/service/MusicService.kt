@@ -18,6 +18,7 @@ import com.example.bjad.ui.audio.NowPlaying
 import com.example.bjad.ui.audio.PlayerViewModel
 import com.example.bjad.util.formatDuration
 import com.example.bjad.util.getBitmapFromUrl
+import com.example.bjad.util.releaseMusicMemory
 import java.io.IOException
 
 private const val TAG = "MusicService"
@@ -172,21 +173,40 @@ class MusicService : Service(), AudioManager.OnAudioFocusChangeListener {
 
 
     override fun onAudioFocusChange(focusChange: Int) {
-        if (focusChange <= 0){
-            Log.d(TAG, "onAudioFocusChange: Pause Music")
+        if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT) {
+            // Pause music playback here
+            Log.d(TAG, "onAudioFocusChange: Pause Music AUDIOFOCUS_LOSS_TRANSIENT")
             MusicPlayer.binding.playPauseMusicBtn.setImageResource(R.drawable.play_music_icon)
             NowPlaying.binding.playPauseBtnNP.setIconResource(R.drawable.play_pa_icon)
             showNotification(R.drawable.play_music_icon)
             MusicPlayer.isPlaying = false
             mediaPlayer!!.pause()
-        }else{
-            Log.d(TAG, "onAudioFocusChange: Play Music")
+        } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
+            // Resume music playback here
+            Log.d(TAG, "onAudioFocusChange: Play Music AUDIOFOCUS_GAIN")
             MusicPlayer.binding.playPauseMusicBtn.setImageResource(R.drawable.pause_music_icon)
             NowPlaying.binding.playPauseBtnNP.setIconResource(R.drawable.pause_pa_icon)
             showNotification(R.drawable.pause_music_icon)
             MusicPlayer.isPlaying = true
             mediaPlayer!!.start()
+            mediaPlayer!!.setVolume(1.0f,1.0f);
+        } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+            // Stop music playback here
+            Log.d(TAG, "onAudioFocusChange: AUDIOFOCUS_LOSS")
+            MusicPlayer.isPlaying = false;
+            releaseMusicMemory()
+
+        } else if (focusChange ==
+            AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+             // Lower the volume, because something else is also
+             // playing audio over you.
+             // i.e. for notifications or navigation directions
+            if (mediaPlayer?.isPlaying == true){
+                Log.d(TAG, "onAudioFocusChange: AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK")
+                mediaPlayer!!.setVolume(0.5f,0.5f);
+            }
         }
+
     }
 
     //for making persistent

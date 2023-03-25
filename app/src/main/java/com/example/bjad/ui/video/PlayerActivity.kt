@@ -23,6 +23,10 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.example.bjad.Model.VideoData
 import com.example.bjad.R
 import com.example.bjad.databinding.ActivityPlayerBinding
+import com.example.bjad.service.MusicService
+import com.example.bjad.ui.audio.MusicPlayer
+import com.example.bjad.ui.audio.NowPlaying
+import com.example.bjad.ui.audio.PlayerViewModel
 import com.github.vkay94.dtpv.youtube.YouTubeOverlay
 import com.google.android.exoplayer2.C
 import com.google.android.exoplayer2.ExoPlayer
@@ -83,6 +87,16 @@ class PlayerActivity : AppCompatActivity(), AudioManager.OnAudioFocusChangeListe
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        if(MusicPlayer.isPlaying){
+            MusicPlayer.isPlaying = false
+            PlayerViewModel.musicService!!.showNotification(R.drawable.play_music_icon)
+            MusicPlayer.binding.playPauseMusicBtn.setImageResource(R.drawable.play_music_icon)
+            NowPlaying.binding.playPauseBtnNP.setIconResource(R.drawable.play_pa_icon)
+            PlayerViewModel.musicService!!.mediaPlayer!!.pause()
+        }
+    }
     private fun preparePlayer() {
         try {
             exoPlayer.release()
