@@ -216,7 +216,7 @@ class MusicService : Service(), AudioManager.OnAudioFocusChangeListener {
 
     //for making persistent
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        Log.d(TAG, "onStartCommand: ")
+        Log.d(TAG, "onStartCommand: 2")
         return START_STICKY
     }
 

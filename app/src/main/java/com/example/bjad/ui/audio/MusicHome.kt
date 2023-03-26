@@ -76,9 +76,7 @@ class MusicHome : Fragment() {
             }
 
         })
-        binding.backMusicHomeBtn.setOnClickListener {
-            Toast.makeText(context, "need to be implement", Toast.LENGTH_SHORT).show()
-        }
+
         binding.shuffleBtn.setOnClickListener {
             val bundle = Bundle()
             bundle.putString("onShuffleClicked","shuffleSongs")

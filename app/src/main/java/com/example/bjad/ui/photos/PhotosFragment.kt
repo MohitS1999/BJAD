@@ -35,14 +35,12 @@ class PhotosFragment : Fragment() {
     ): View? {
         binding = FragmentPhotosBinding.inflate(layoutInflater)
         Log.d(TAG, "onCreateView: ")
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "onViewCreated: ")
-
         photosList = ArrayList()
         observePhotos()
 
@@ -52,13 +50,16 @@ class PhotosFragment : Fragment() {
         viewModel.getphotos.observe(viewLifecycleOwner){
             when(it){
                 is UiState.Success -> {
+                    Log.d(TAG, "observePhotos: Success")
                     for (data in it.data) photosList.add(data)
                     updateRecyclerView()
                 }
                 is UiState.Failure -> {
+                    Log.d(TAG, "observePhotos: Failure")
                     //TODO
                 }
                 is UiState.Loading -> {
+                    Log.d(TAG, "observePhotos: Loading")
                     // TODO
                 }
             }
@@ -66,7 +67,7 @@ class PhotosFragment : Fragment() {
     }
 
     private fun updateRecyclerView() {
-
+        Log.d(TAG, "updateRecyclerView: ")
         photosRecyclerView = binding.photosRecyclerView
         // for
         photosRecyclerView.setHasFixedSize(true)
@@ -80,6 +81,7 @@ class PhotosFragment : Fragment() {
     }
 
     private fun onPhotoClicked(list: ArrayList<String>,position: Int){
+        Log.d(TAG, "onPhotoClicked: ")
         val bundle = Bundle()
         bundle.putStringArrayList("imageList",list)
         bundle.putInt("position",position)

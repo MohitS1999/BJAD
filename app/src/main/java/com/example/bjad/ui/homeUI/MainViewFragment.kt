@@ -64,6 +64,10 @@ class MainViewFragment : Fragment() {
             findNavController().navigate(R.id.action_mainViewFragment_to_videoList2,Bundle().apply {  })
         }
 
+        binding.aartiIcon.setOnClickListener {
+            findNavController().navigate(R.id.action_mainViewFragment_to_aarti,Bundle().apply {  })
+        }
+
 
     }
 

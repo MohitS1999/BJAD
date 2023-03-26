@@ -2,6 +2,8 @@ package com.example.bjad.di
 
 import android.media.MediaPlayer
 import com.example.bjad.api.SunsetSunriseApi
+import com.example.bjad.repository.aartiRepository.AartiRepository
+import com.example.bjad.repository.aartiRepository.AartiRepositoryImp
 import com.example.bjad.repository.authRepository.AuthRepository
 import com.example.bjad.repository.authRepository.AuthRepositoryImp
 import com.example.bjad.repository.mainRepository.MainRepository
@@ -72,6 +74,14 @@ object RepositoryModule {
         database:FirebaseFirestore
     ) : VideoRepository {
         return VideoRepositoryImp(database)
+    }
+
+    @Provides
+    @Singleton
+    fun providesAartiListRepository(
+        database: FirebaseFirestore
+    ) : AartiRepository{
+        return AartiRepositoryImp(database)
     }
 
 }

@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_mainViewFragment_to_audioActivity"
             app:destination="@id/audioActivity" />
+        <action
+            android:id="@+id/action_mainViewFragment_to_aarti"
+            app:destination="@id/aarti" />
     </fragment>
     <fragment
         android:id="@+id/photosFragment"
@@ -103,5 +106,10 @@
         android:name="com.example.bjad.ui.audio.AudioActivity"
         android:label="activity_audio"
         tools:layout="@layout/activity_audio" />
+    <fragment
+        android:id="@+id/aarti"
+        android:name="com.example.bjad.ui.aarti.Aarti"
+        android:label="fragment_aarti"
+        tools:layout="@layout/fragment_aarti" />
 
 </navigation>

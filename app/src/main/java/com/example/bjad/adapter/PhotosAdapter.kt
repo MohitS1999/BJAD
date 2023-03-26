@@ -20,11 +20,13 @@ class PhotosAdapter(
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotosViewHolder {
+        Log.d(TAG, "onCreateViewHolder: ")
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.photos_item,parent,false)
         return PhotosViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: PhotosViewHolder, position: Int) {
+        Log.d(TAG, "onBindViewHolder: ")
         val imageUrl:String = photosList[position]
         Glide.with(holder.itemView)
             .load(imageUrl)
@@ -39,6 +41,7 @@ class PhotosAdapter(
     }
 
     override fun getItemCount(): Int {
+        Log.d(TAG, "getItemCount: ")
         return photosList.size
     }
 
