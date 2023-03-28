@@ -118,10 +118,7 @@ dependencies {
     //music player
     implementation 'androidx.media:media:1.6.0'
 
-
-
-
-
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
 
 
 }

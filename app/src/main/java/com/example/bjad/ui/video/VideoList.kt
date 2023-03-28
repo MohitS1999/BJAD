@@ -14,8 +14,10 @@ import com.example.bjad.Model.VideoData
 import com.example.bjad.R
 import com.example.bjad.adapter.VideoSongAdapter
 import com.example.bjad.databinding.FragmentVideoListBinding
+import com.example.bjad.ui.audio.MusicHome
 import com.example.bjad.util.UiState
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.music_list_view.view.*
 
 private const val TAG = "VideoList"
 @AndroidEntryPoint
@@ -46,28 +48,30 @@ class VideoList : Fragment() {
         videoList = ArrayList()
         observeSongs()
 
-    }
+        binding.searchViewVideo.clearFocus()
 
-
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.search_view,menu)
-        val searchView = menu.findItem(R.id.seachView)?.actionView as SearchView
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        binding.searchViewVideo.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-
-                return false
+                TODO("Not yet implemented")
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                videoAdapter.filter.filter(newText.toString())
+                try{
+                    videoAdapter.filter.filter(newText.toString())
+                }catch (e:NullPointerException){
+                    Log.d(TAG, "onQueryTextChange: ${e.printStackTrace()}")
+                }
+
+
                 return false
             }
 
         })
-
-        super.onCreateOptionsMenu(menu, inflater)
     }
+
+
+
+
 
 
     private fun observeSongs() {

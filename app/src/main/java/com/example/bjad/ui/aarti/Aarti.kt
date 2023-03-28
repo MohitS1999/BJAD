@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -94,6 +95,9 @@ class Aarti : Fragment() {
 
     private fun onAartiClicked(arrayList: ArrayList<AartiData>, i: Int) {
         Log.d(TAG, "onAartiClicked: ")
+        val bundle = Bundle()
+        bundle.putString("url",arrayList[i].aartiPdf)
+        findNavController().navigate(R.id.action_aarti_to_PDFViewer,bundle)
     }
 
 

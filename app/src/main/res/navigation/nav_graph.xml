@@ -110,6 +110,19 @@
         android:id="@+id/aarti"
         android:name="com.example.bjad.ui.aarti.Aarti"
         android:label="fragment_aarti"
-        tools:layout="@layout/fragment_aarti" />
+        tools:layout="@layout/fragment_aarti" >
+        <action
+            android:id="@+id/action_aarti_to_PDFViewer"
+            app:destination="@id/PDFViewer" />
+    </fragment>
+    <fragment
+        android:id="@+id/PDFViewer"
+        android:name="com.example.bjad.ui.aarti.PDFViewer"
+        android:label="fragment_p_d_f_viewer"
+        tools:layout="@layout/fragment_p_d_f_viewer" >
+        <action
+            android:id="@+id/action_PDFViewer_to_aarti"
+            app:destination="@id/aarti" />
+    </fragment>
 
 </navigation>
