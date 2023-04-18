@@ -10,16 +10,24 @@
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD/app/src/main/res/layout/fragment_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/drawable/back_icon.xml" value="0.124" />
+        <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/drawable/equalizer_icon.xml" value="0.124" />
+        <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/drawable/menu_home.xml" value="0.124" />
+        <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/drawable/right_arrow_home.xml" value="0.149" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/drawable/search_view_bg.xml" value="0.124" />
+        <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/drawable/timer_icon.xml" value="0.149" />
+        <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/drawable/top_home_bg.xml" value="0.149" />
+        <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/drawable/volume_icon.xml" value="0.124" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/aarti_list_view.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/activity_audio.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/activity_main.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/activity_player.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/custome_control_view.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/dashboard_item_1.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/fragment_aarti.xml" value="0.1" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/fragment_forgot_password.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/fragment_full_image.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/fragment_login.xml" value="0.11302083333333333" />
-        <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/fragment_main_view.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/fragment_main_view.xml" value="0.4" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/fragment_music_home.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/fragment_music_player.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/fragment_p_d_f_viewer.xml" value="0.25416666666666665" />
@@ -27,9 +35,11 @@
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/fragment_spash_screen.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/fragment_video_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/full_view_image.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/header_menu.xml" value="0.1" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/music_list_view.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/photos_item.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/layout/video_list_view.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/singhmh/AndroidStudioProjects/BJAD_23_03/app/src/main/res/menu/home_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

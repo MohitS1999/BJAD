@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="Home"
+            android:icon="@drawable/menu_home"/>
+        <item
+            android:id="@+id/nav_music"
+            android:title="Music"
+            android:icon="@drawable/menu_music"/>
+        <item
+            android:id="@+id/nav_video"
+            android:title="Video"
+            android:icon="@drawable/menu_video"/>
+
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Profile">
+            <menu>
+                <item
+                    android:id="@+id/nav_about"
+                    android:title="About"
+                    android:icon="@drawable/menu_about"/>
+                <item
+                    android:id="@+id/nav_contact_info"
+                    android:title="Music"
+                    android:icon="@drawable/menu_contact_info"/>
+            </menu>
+        </item>
+    </group>
+
+    <item android:title="Container">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:title="Share"
+                android:icon="@drawable/menu_about"/>
+            <item
+                android:id="@+id/nav_rate_us"
+                android:title="Rate us"
+                android:icon="@drawable/smiley_icon"/>
+        </menu>
+    </item>
+
+
+</menu>

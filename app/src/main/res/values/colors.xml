@@ -32,4 +32,14 @@
     <color name="search_bg_color">#ADD8E6</color>
     <color name="time_color_rv">#494E65</color>
     <color name="favouriteColor">#FF2400</color>
+
+
+    <!-- NEW UI 1.1 -->
+
+    <!-- Home Page -->
+    <color name="grid_bg_home">#ebe9ea</color>
+    <color name="text_color_home">#565455</color>
+    <color name="upper_part_home">#efdcd8</color>
+    <color name="lower_part_home">#cad5bf</color>
+
 </resources>

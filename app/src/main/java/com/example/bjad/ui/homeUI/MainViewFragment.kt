@@ -2,24 +2,20 @@ package com.example.bjad.ui.homeUI
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bjad.Model.Results
 import com.example.bjad.R
 import com.example.bjad.databinding.FragmentMainViewBinding
-import com.example.bjad.ui.audio.MusicPlayer
-import com.example.bjad.ui.audio.PlayerViewModel
-import com.example.bjad.util.UiState
-import com.example.bjad.util.releaseMusicMemory
-import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_main_view.view.*
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 private const val TAG = "MainViewFragment"
 
@@ -51,8 +47,13 @@ class MainViewFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,callback)
 
         Log.d(TAG, "onViewCreated: ")
-        setUserName()
-        setSunsetSunriseTime()
+        val cal = Calendar.getInstance()
+        val month_date = SimpleDateFormat("EEE dd MMMM",Locale.ENGLISH)
+        val month_name = month_date.format(cal.time)
+        binding.dateHome.text = month_name.split(" ")[1] +"th "+ month_name.split(" ")[2].toUpperCase()
+        binding.weekDayTV.text = month_name.split(" ")[0]
+        //setUserName()
+        //setSunsetSunriseTime()
 
         binding.photos.setOnClickListener(){
             findNavController().navigate(R.id.action_mainViewFragment_to_photosFragment,Bundle().apply {  })
@@ -71,7 +72,7 @@ class MainViewFragment : Fragment() {
 
     }
 
-    private fun setUserName() {
+    /*private fun setUserName() {
         viewModel.setUser.observe(viewLifecycleOwner) { state ->
             when(state){
                 is UiState.Loading -> {
@@ -88,10 +89,10 @@ class MainViewFragment : Fragment() {
             }
 
         }
-    }
+    }*/
 
     // how to get the data using retrofit api
-    private fun setSunsetSunriseTime() {
+  /*  private fun setSunsetSunriseTime() {
         viewModel.getSunsetSunrisedata.observe(viewLifecycleOwner) {
             when (it)  {
                 is UiState.Success -> {
@@ -103,7 +104,7 @@ class MainViewFragment : Fragment() {
 
         }
 
-    }
+    }*/
 
 
     override fun onDestroy() {
