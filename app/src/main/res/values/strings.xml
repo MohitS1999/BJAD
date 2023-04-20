@@ -32,5 +32,7 @@
     <string name="song_content_home">Listen heart touching and beautiful songs with lots of love and gods love</string>
     <string name="photos_name_home">Photos</string>
     <string name="photos_content_home">Listen heart touching and beautiful songs with lots of love and gods love</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
 
 </resources>

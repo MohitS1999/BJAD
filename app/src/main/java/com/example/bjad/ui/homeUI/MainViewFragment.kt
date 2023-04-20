@@ -2,17 +2,23 @@ package com.example.bjad.ui.homeUI
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
+import android.widget.Toolbar
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bjad.Model.Results
 import com.example.bjad.R
 import com.example.bjad.databinding.FragmentMainViewBinding
+import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_main_view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -20,7 +26,7 @@ import java.util.*
 private const val TAG = "MainViewFragment"
 
 @AndroidEntryPoint
-class MainViewFragment : Fragment() {
+class MainViewFragment : Fragment(),NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var binding: FragmentMainViewBinding
     private val viewModel by viewModels<MainViewModel>()
@@ -38,10 +44,19 @@ class MainViewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // for go back to home page of phone
+
+
+        navigationDrawer()
+
         val callback = object: OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
-                activity?.moveTaskToBack(true)
+                if (binding.homeDrawerLayout.isDrawerOpen(GravityCompat.START)){
+                    binding.homeDrawerLayout.closeDrawer(GravityCompat.START)
+                    binding.navView.setCheckedItem(R.id.nav_home)
+                }else{
+                    activity?.moveTaskToBack(true)
+                }
+
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,callback)
@@ -72,24 +87,20 @@ class MainViewFragment : Fragment() {
 
     }
 
-    /*private fun setUserName() {
-        viewModel.setUser.observe(viewLifecycleOwner) { state ->
-            when(state){
-                is UiState.Loading -> {
-                    Log.d(TAG, "observer: Loading")
-                }
-                is UiState.Failure -> {
+    private fun navigationDrawer() {
+        binding.navView.bringToFront()
+        binding.navView.setNavigationItemSelectedListener(this)
+        binding.navView.setCheckedItem(R.id.nav_home)
 
-                    Toast.makeText(context,state.error, Toast.LENGTH_SHORT).show()
-                }
-                is UiState.Success -> {
-                    Log.d(TAG, "observer: Success")
-                    binding.textTitle.setText("hello, "+state.data)
-                }
+        binding.menuHome.setOnClickListener {
+            if(binding.homeDrawerLayout.isDrawerVisible(GravityCompat.START)){
+                binding.homeDrawerLayout.closeDrawer(GravityCompat.START)
+            }else{
+                binding.homeDrawerLayout.openDrawer(GravityCompat.START)
             }
-
         }
-    }*/
+    }
+
 
     // how to get the data using retrofit api
   /*  private fun setSunsetSunriseTime() {
@@ -113,8 +124,48 @@ class MainViewFragment : Fragment() {
 
     }
 
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        Log.d(TAG, "onNavigationItemSelected: ")
+        return when (item.itemId) {
+            R.id.nav_home -> {
+                binding.homeDrawerLayout.closeDrawer(GravityCompat.START)
+                true
+            }
+            R.id.nav_music -> {
+                findNavController().navigate(
+                    R.id.action_mainViewFragment_to_audioActivity,
+                    Bundle().apply { })
+                true
+            }
+            R.id.nav_video -> {
+                findNavController().navigate(
+                    R.id.action_mainViewFragment_to_videoList2,
+                    Bundle().apply { })
+                true
+            }
+            R.id.nav_about -> {
+                Toast.makeText(requireContext(), "About!!!", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.nav_contact_info -> {
+                Toast.makeText(requireContext(), "Info!!!", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.nav_rate_us -> {
+                Toast.makeText(requireContext(), "Rate us!!!", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.nav_share -> {
+                Toast.makeText(requireContext(), "share!!!", Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
 
 }
+
+
 
 
