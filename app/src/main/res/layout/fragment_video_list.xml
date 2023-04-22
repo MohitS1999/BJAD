@@ -5,6 +5,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    android:background="@color/upper_part_home"
     tools:context=".ui.video.VideoList">
 
     <androidx.appcompat.widget.SearchView
@@ -13,21 +16,19 @@
         android:focusableInTouchMode="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_7sdp"
-        android:layout_marginVertical="@dimen/_7sdp"
-        android:background="@drawable/search_view_bg"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginVertical="@dimen/_5sdp"
         app:queryHint="Search here..."
         android:focusable="true" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/videoRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="@dimen/_5sdp"
-        android:layout_marginVertical="@dimen/_5sdp">
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:layout_weight="1" >
 
 
     </androidx.recyclerview.widget.RecyclerView>

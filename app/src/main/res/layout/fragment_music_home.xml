@@ -7,6 +7,8 @@
     android:orientation="vertical"
     android:gravity="center"
     android:id="@+id/musicHomeLL"
+    android:fitsSystemWindows="true"
+    android:background="@color/upper_part_home"
     tools:context=".ui.audio.MusicHome">
 
 
@@ -18,8 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginVertical="@dimen/_5sdp"
-            android:background="@drawable/search_view_bg"
             app:queryHint="Search here..."
             android:focusable="true" />
 
@@ -31,6 +33,7 @@
         android:id="@+id/musicRV"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/white"
         android:layout_weight="1" />
 
     <androidx.fragment.app.FragmentContainerView

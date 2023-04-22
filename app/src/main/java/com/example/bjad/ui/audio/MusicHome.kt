@@ -82,7 +82,7 @@ class MusicHome : Fragment() {
             bundle.putString("onShuffleClicked","shuffleSongs")
             bundle.putInt("pos",0)
             bundle.putSerializable("musicList",musicList as java.io.Serializable)
-            //findNavController().navigate(R.id.action_musicHome_to_musicPlayer,bundle)
+            findNavController().navigate(R.id.action_musicHome_to_musicPlayer,bundle)
         }
         binding.favoriteBtn.setOnClickListener {
             Toast.makeText(requireContext(),"Thank for like", Toast.LENGTH_SHORT).show()
