@@ -4,45 +4,46 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:title="Home"
-            android:icon="@drawable/menu_home"/>
+            android:title="@string/home_navigation"
+            android:icon="@drawable/menu_home"
+            />
         <item
             android:id="@+id/nav_music"
-            android:title="Music"
+            android:title="@string/music_navigation"
             android:icon="@drawable/menu_music"/>
         <item
             android:id="@+id/nav_video"
-            android:title="Video"
+            android:title="@string/video_navigation"
             android:icon="@drawable/menu_video"/>
 
     </group>
 
 
-        <item android:title="Profile">
+        <item android:title="@string/profile_navigation">
             <menu>
                 <group android:checkableBehavior="single">
                     <item
                         android:id="@+id/nav_about"
-                        android:title="About"
+                        android:title="@string/about_navigation"
                         android:icon="@drawable/menu_about"/>
                     <item
                         android:id="@+id/nav_contact_info"
-                        android:title="Contact info"
+                        android:title="@string/contact_info_navigation"
                         android:icon="@drawable/menu_contact_info"/>
                 </group>
             </menu>
         </item>
 
 
-    <item android:title="Container">
+    <item android:title="@string/container_navigation">
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:title="Share"
+                android:title="@string/share_navigation"
                 android:icon="@drawable/menu_about"/>
             <item
                 android:id="@+id/nav_rate_us"
-                android:title="Rate us"
+                android:title="@string/rateus_navigation"
                 android:icon="@drawable/smiley_icon"/>
         </menu>
     </item>
