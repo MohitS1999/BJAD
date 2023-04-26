@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  home screen naming convention -->
+    <string name="aarti_name_home">आरती</string>
+    <string name="aarti_content_home">विनम्रता और कृतज्ञता की भावना में देवताओं के सामने जलती हुई बत्तियाँ लहराना</string>
+    <string name="video_name_home">वीडियो</string>
+    <string name="video_content_home">बहुत सारे प्यार और देवताओं के प्यार के साथ दिल को छूने वाले और खूबसूरत वीडियो गाने सुनें</string>
+    <string name="song_name_home">गीत</string>
+    <string name="song_content_home">बहुत सारे प्यार और देवताओं के प्यार के साथ दिल को छूने वाले और खूबसूरत गाने सुनें</string>
+    <string name="photos_name_home">तस्वीरें</string>
+    <string name="photos_content_home">ईश्वर का प्रेम एक नदी की तरह है, जो निरंतर बहती है और कभी समाप्त नहीं होती।</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
+    <string name="top_bar_home">ईश्वर पर विश्वास करें और वह आपके लक्ष्यों को प्राप्त करने के लिए आपका रास्ता साफ करेगा</string>
+    <string name="namaste">नमस्ते</string>
+
+    <!--  Navigation drawer -->
+    <string name="home_navigation">होम</string>
+    <string name="music_navigation">संगीत</string>
+    <string name="video_navigation">वीडियो</string>
+    <string name="profile_navigation">प्रोफ़ाइल</string>
+    <string name="about_navigation">मंदिर के बारे में</string>
+    <string name="contact_info_navigation">संपर्क सूचना</string>
+    <string name="container_navigation">container</string>
+    <string name="share_navigation">शेयर करे </string>
+    <string name="rateus_navigation">हमें रेटिंग दें</string>
+    <string name="welcometomandir_navigation">मंदिर में आपका स्वागत है</string>
+    <string name="language_navigation">भाषा</string>
+    <string name="english_lan">English</string>
+    <string name="hindi_lan">हिंदी</string>
+
+    <!--  Music Player -->
+    <string name="favorite_musicPlayer">Favorite</string>
+    <string name="shuffle_musicPlayer">Shuffle</string>
+</resources>

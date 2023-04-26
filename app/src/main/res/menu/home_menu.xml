@@ -34,6 +34,21 @@
             </menu>
         </item>
 
+    <item android:title="@string/language_navigation">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_english"
+                    android:title="@string/english_lan"
+                    android:icon="@drawable/language"/>
+                <item
+                    android:id="@+id/nav_hindi"
+                    android:title="@string/hindi_lan"
+                    android:icon="@drawable/language"/>
+            </group>
+        </menu>
+    </item>
+
 
     <item android:title="@string/container_navigation">
         <menu>

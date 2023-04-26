@@ -1,24 +1,24 @@
 <resources>
-    <string name="app_name">BJAD</string>
-    <string name="log_in">Log In</string>
-    <string name="signup">signUp</string>
+    <string name="app_name" translatable="false">BJAD</string>
+    <string name="log_in" translatable="false">Log In</string>
+    <string name="signup" translatable="false">signUp</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
     <!-- for exoplayer layout -->
-    <string name="loading">Loading..</string>
-    <string name="duration">00:00</string>
-    <string name="semi_colon">:</string>
-    <string name="lock">Lock Icon</string>
-    <string name="back_btn">Back Button</string>
-    <string name="menu">Menu</string>
-    <string name="video_name">Video Name</string>
-    <string name="prev_btn">Previous Button</string>
-    <string name="next_btn">Next Button</string>
-    <string name="fullscreen_btn">FullScreen Button</string>
-    <string name="play_btn">Play Button</string>
-    <string name="search">search</string>
-    <string name="O">0</string>
+    <string name="loading" translatable="false">Loading..</string>
+    <string name="duration" translatable="false">00:00</string>
+    <string name="semi_colon" translatable="false">:</string>
+    <string name="lock" translatable="false">Lock Icon</string>
+    <string name="back_btn" translatable="false">Back Button</string>
+    <string name="menu" translatable="false">Menu</string>
+    <string name="video_name" translatable="false">Video Name</string>
+    <string name="prev_btn" translatable="false">Previous Button</string>
+    <string name="next_btn" translatable="false">Next Button</string>
+    <string name="fullscreen_btn" translatable="false">FullScreen Button</string>
+    <string name="play_btn" translatable="false">Play Button</string>
+    <string name="search" translatable="false">search</string>
+    <string name="O" translatable="false">0</string>
 
 
     <!-- NEW UI 1.1 -->
@@ -31,7 +31,7 @@
     <string name="song_name_home">Songs</string>
     <string name="song_content_home">Listen heart touching and beautiful songs with lots of love and gods love</string>
     <string name="photos_name_home">Photos</string>
-    <string name="photos_content_home">Listen heart touching and beautiful songs with lots of love and gods love</string>
+    <string name="photos_content_home">God\'s love is like a river, constantly flowing and never-ending.</string>
     <string name="navigation_drawer_open">open</string>
     <string name="navigation_drawer_close">close</string>
     <string name="top_bar_home">Believe in god and he will clear your way to achieve your goals</string>
@@ -49,10 +49,14 @@
     <string name="share_navigation">Share</string>
     <string name="rateus_navigation">Rate us</string>
     <string name="welcometomandir_navigation">Welcome to Mandir</string>
+    <string name="language_navigation">language</string>
+    <string name="english_lan">English</string>
+    <string name="hindi_lan">हिंदी</string>
 
     <!--  Music Player -->
     <string name="favorite_musicPlayer">Favorite</string>
     <string name="shuffle_musicPlayer">Shuffle</string>
+
 
 
 </resources>

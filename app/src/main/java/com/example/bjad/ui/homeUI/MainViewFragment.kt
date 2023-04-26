@@ -1,5 +1,6 @@
 package com.example.bjad.ui.homeUI
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -8,6 +9,7 @@ import android.widget.Toolbar
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat.recreate
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
@@ -33,6 +35,10 @@ class MainViewFragment : Fragment(),NavigationView.OnNavigationItemSelectedListe
     private lateinit var sunSetSunriseRes:Results
 
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setLocale(getLanguagePreference(),true)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -63,10 +69,18 @@ class MainViewFragment : Fragment(),NavigationView.OnNavigationItemSelectedListe
 
         Log.d(TAG, "onViewCreated: ")
         val cal = Calendar.getInstance()
-        val month_date = SimpleDateFormat("EEE dd MMMM",Locale.ENGLISH)
-        val month_name = month_date.format(cal.time)
-        binding.dateHome.text = month_name.split(" ")[1] +"th "+ month_name.split(" ")[2].toUpperCase()
-        binding.weekDayTV.text = month_name.split(" ")[0]
+        val monthDate:SimpleDateFormat
+        if (Locale.getDefault().language.equals("en")){
+            Log.d(TAG, "onViewCreated: en  ${Locale.getDefault()}")
+            monthDate = SimpleDateFormat("EEEE dd MMMM",Locale.ENGLISH)
+        }else{
+
+            monthDate = SimpleDateFormat("EEEE dd MMMM",Locale("hi","IN"))
+        }
+
+        val monthName = monthDate.format(cal.time)
+        binding.dateHome.text = monthName.split(" ")[1] +"th "+ monthName.split(" ")[2].toUpperCase()
+        binding.weekDayTV.text = monthName.split(" ")[0]
         //setUserName()
         //setSunsetSunriseTime()
 
@@ -159,8 +173,47 @@ class MainViewFragment : Fragment(),NavigationView.OnNavigationItemSelectedListe
                 Toast.makeText(requireContext(), "share!!!", Toast.LENGTH_SHORT).show()
                 true
             }
+            R.id.nav_hindi ->{
+                if (Locale.getDefault().language == "en")
+                    saveLanguagePreference("hi")
+                    setLocale("hi",false)
+                true
+            }
+            R.id.nav_english -> {
+                if (Locale.getDefault().language == "hi"){
+                    saveLanguagePreference("en")
+                    setLocale("en",false)
+                }
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+    private fun setLocale(langCode:String,comeFromcreateMethod:Boolean){
+        Log.d(TAG, "setLocale: $langCode")
+        val locale = Locale(langCode)
+        Locale.setDefault(locale)
+
+        val resources =requireContext().resources
+        val configuration = resources.configuration
+        configuration.setLocale(locale)
+        resources.updateConfiguration(configuration, resources.displayMetrics)
+        if (!comeFromcreateMethod)  recreate(requireActivity())
+    }
+
+    fun getLanguagePreference(): String {
+        val preferences = activity?.getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
+        val language = preferences?.getString("language", "") ?: ""
+        Log.d(TAG, "getLanguagePreference: language :- $language")
+        return language
+    }
+
+    fun saveLanguagePreference(language: String) {
+        Log.d(TAG, "saveLanguagePreference: $language")
+        val preferences = activity?.getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
+        val editor = preferences?.edit()
+        editor?.putString("language", language)
+        editor?.apply()
     }
 
 
