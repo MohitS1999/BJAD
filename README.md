@@ -10,15 +10,15 @@ Welcome to Temple Android app!
 ### Screenshots
 
 <p align="center">
-  <img src="Image/login_page.jpeg" width="250" />
-  <img src="Image/verify_otp.jpeg" width="250" />
-  <img src="Image/home_page.jpeg" width="250" />
+  <img src="Imagess/login.jpeg" width="250" />
+  <img src="Imagess/home.jpeg" width="250" />
+  <img src="Imagess/menu_en.jpeg" width="250" />
 </p>
 
 <p align="center">
-  <img src="Image/semester.jpeg" width="250" />
-  <img src="Image/notes_scroll.jpeg" width="250" /> 
-  <img src="Image/pdf_view.jpeg" width="250" />
+  <img src="Imagess/menu_in.jpeg" width="250" />
+  <img src="Imagess/music.jpeg" width="250" /> 
+  <img src="Imagess/Player.jpeg" width="250" />
 </p>
 
 ### Benefits
