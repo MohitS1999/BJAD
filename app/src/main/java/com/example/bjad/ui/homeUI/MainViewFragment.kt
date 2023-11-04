@@ -1,6 +1,7 @@
 package com.example.bjad.ui.homeUI
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -33,11 +34,18 @@ class MainViewFragment : Fragment(),NavigationView.OnNavigationItemSelectedListe
     lateinit var binding: FragmentMainViewBinding
     private val viewModel by viewModels<MainViewModel>()
     private lateinit var sunSetSunriseRes:Results
+    private lateinit var preferences:SharedPreferences
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        preferences = requireActivity().getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
+        setLocale(getLanguagePreference(),true)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setLocale(getLanguagePreference(),true)
+
+
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,13 +77,13 @@ class MainViewFragment : Fragment(),NavigationView.OnNavigationItemSelectedListe
 
         Log.d(TAG, "onViewCreated: ")
         val cal = Calendar.getInstance()
-        val monthDate:SimpleDateFormat
-        if (Locale.getDefault().language.equals("en")){
+        val monthDate:SimpleDateFormat = if (Locale.getDefault().language.equals("en")){
             Log.d(TAG, "onViewCreated: en  ${Locale.getDefault()}")
-            monthDate = SimpleDateFormat("EEEE dd MMMM",Locale.ENGLISH)
+            SimpleDateFormat("EEEE dd MMMM",Locale.ENGLISH)
+        }else if(Locale.getDefault().language.equals("hi")){
+            SimpleDateFormat("EEEE dd MMMM",Locale("hi","IN"))
         }else{
-
-            monthDate = SimpleDateFormat("EEEE dd MMMM",Locale("hi","IN"))
+            SimpleDateFormat("EEEE dd MMMM",Locale.ENGLISH)
         }
 
         val monthName = monthDate.format(cal.time)
@@ -202,16 +210,15 @@ class MainViewFragment : Fragment(),NavigationView.OnNavigationItemSelectedListe
     }
 
     fun getLanguagePreference(): String {
-        val preferences = activity?.getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
-        val language = preferences?.getString("language", "") ?: ""
-        Log.d(TAG, "getLanguagePreference: language :- $language")
+        //val preferences = activity?.getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
+        val language = preferences.getString("language", "en") ?: ""
+        Log.d(TAG, "getLanguagePreference: language :- $preferences - -  $language")
         return language
     }
 
-    fun saveLanguagePreference(language: String) {
+    private fun saveLanguagePreference(language: String) {
         Log.d(TAG, "saveLanguagePreference: $language")
-        val preferences = activity?.getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
-        val editor = preferences?.edit()
+        val editor = preferences.edit()
         editor?.putString("language", language)
         editor?.apply()
     }
