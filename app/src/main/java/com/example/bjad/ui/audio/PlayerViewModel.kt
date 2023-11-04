@@ -65,7 +65,7 @@ class PlayerViewModel @Inject constructor() : ViewModel(), MediaPlayer.OnComplet
 
 
     fun createMediaPlayer(url: String) {
-        _firstSong.postValue(UiState.Loading)
+        _firstSong.value = UiState.Loading
         
         try {
             Log.d(TAG, "createMediaPlayer: $musicService")
@@ -85,8 +85,9 @@ class PlayerViewModel @Inject constructor() : ViewModel(), MediaPlayer.OnComplet
                 musicService?.mediaPlayer!!.stop()
             }
             musicService?.mediaPlayer!!.reset()
-            MusicPlayer.binding.seekBarEnd.text = "loading..."
 
+            MusicPlayer.binding.seekBarEnd.text = "loading..."
+            MusicPlayer.binding.seekBarPA.isEnabled = false
             musicService?.mediaPlayer?.setDataSource(url)
             musicService?.mediaPlayer?.setOnPreparedListener {
                 playMusic()
@@ -114,7 +115,8 @@ class PlayerViewModel @Inject constructor() : ViewModel(), MediaPlayer.OnComplet
         _firstSong.postValue(UiState.Success(1))
     }
 
-    fun setSeekbar(){
+    private fun setSeekbar(){
+        MusicPlayer.binding.seekBarPA.isEnabled = true
         MusicPlayer.binding.seekBarStart.text = formatDuration(musicService!!.mediaPlayer!!.currentPosition.toLong())
         MusicPlayer.binding.seekBarEnd.text = formatDuration(musicService!!.mediaPlayer!!.duration.toLong())
         MusicPlayer.binding.seekBarPA.progress = 0

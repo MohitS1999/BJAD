@@ -77,6 +77,11 @@ class MusicHome : Fragment() {
 
         })
 
+        binding.backBtn.setOnClickListener {
+            Log.d(TAG, "onViewCreated: onClick on backBtn")
+            requireActivity().onBackPressed()
+        }
+
         binding.shuffleBtn.setOnClickListener {
             val bundle = Bundle()
             bundle.putString("onShuffleClicked","shuffleSongs")

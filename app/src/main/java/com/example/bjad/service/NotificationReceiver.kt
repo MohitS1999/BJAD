@@ -73,7 +73,7 @@ class NotificationReceiver : BroadcastReceiver() {
         //NowPlaying.binding.playPauseBtnNP.setIconResource(R.drawable.pause_pa_icon)
     }
 
-    fun setSeekbar() {
+    private fun setSeekbar() {
         MusicPlayer.binding.seekBarStart.text =
             formatDuration(PlayerViewModel.musicService!!.mediaPlayer!!.currentPosition.toLong())
         MusicPlayer.binding.seekBarEnd.text =
