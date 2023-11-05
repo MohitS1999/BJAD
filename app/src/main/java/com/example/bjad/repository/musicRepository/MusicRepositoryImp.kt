@@ -22,10 +22,11 @@ class MusicRepositoryImp(
             }
                 for (document in snapshots!!){
                     musicList.add(MusicData(
-                        document.data.get("song_name").toString(),
-                        document.data.get("song_url").toString(),
-                        document.data.get("img_url").toString(),
-                        document.data.get("artist").toString()))
+                        document.data["song_name"].toString(),
+                        document.data["song_name_hi"].toString(),
+                        document.data["song_url"].toString(),
+                        document.data["img_url"].toString(),
+                        document.data["artist"].toString()))
                 }
                 Log.d(TAG, "getSongs: $musicList")
                 result.invoke(UiState.Success(musicList))

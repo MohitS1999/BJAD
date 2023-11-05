@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.bjad.Model.MusicData
 import com.example.bjad.databinding.MusicListViewBinding
+import java.util.Locale
 
 private const val TAG = "VideoSongAdapter"
 class MusicAdapter(
@@ -41,7 +42,22 @@ class MusicAdapter(
             .into(holder.image)
         holder.singerName.text = audioData.singerName
         holder.time.text = audioData.time
-        holder.songName.text = audioData.songName
+        if (Locale.getDefault().language == "en"){
+            Log.d(TAG, "onBindViewHolder: system language is english")
+            holder.songName.text = audioData.songName
+        }else if(Locale.getDefault().language == "hi"){
+            if (audioData.songNameHi.isEmpty()){
+                Log.d(TAG, "onBindViewHolder: hindi string is empty")
+                holder.songName.text = audioData.songName
+            }else {
+                Log.d(TAG, "onBindViewHolder: ${audioData.songNameHi}")
+                holder.songName.text = audioData.songNameHi
+            }
+        }else{
+            Log.d(TAG, "onBindViewHolder: system language else")
+            holder.songName.text = audioData.songName
+        }
+
 
         holder.itemView.setOnClickListener {
             onSongClicked(audioList,position)

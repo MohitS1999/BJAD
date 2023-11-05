@@ -29,6 +29,7 @@
     <string name="language_navigation">भाषा</string>
     <string name="english_lan">English</string>
     <string name="hindi_lan">हिंदी</string>
+    <string name="developed_by_mohits">मोहित द्वारा विकसित</string>
 
     <!--  Music Player -->
     <string name="favorite_musicPlayer">Favorite</string>

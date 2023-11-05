@@ -56,7 +56,7 @@
     <!--  Music Player -->
     <string name="favorite_musicPlayer">Favorite</string>
     <string name="shuffle_musicPlayer">Shuffle</string>
-
+    <string name="developed_by_mohits">Developed by MohitS.</string>
 
 
 </resources>

@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:background="@color/upper_part_home"
     android:gravity="bottom"
-    android:padding="@dimen/_20sdp"
+    android:paddingHorizontal="@dimen/_20sdp"
     >
     <ImageView
         android:layout_width="wrap_content"
@@ -19,6 +19,14 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="@string/welcometomandir_navigation"
-        android:textSize="25sp" />
+        android:textSize="@dimen/_22ssp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/developed_by_mohits"
+        android:layout_gravity="end"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_10sdp"/>
 
 </LinearLayout>
