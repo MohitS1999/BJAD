@@ -92,6 +92,7 @@ class PlayerViewModel @Inject constructor() : ViewModel(), MediaPlayer.OnComplet
             musicService?.mediaPlayer?.setOnPreparedListener {
                 playMusic()
                 setSeekbar()
+                _firstSong.postValue(UiState.Success(1))
             }
             musicService?.mediaPlayer?.prepareAsync()
             musicService!!.showNotification(R.drawable.pause_music_icon)
@@ -112,7 +113,7 @@ class PlayerViewModel @Inject constructor() : ViewModel(), MediaPlayer.OnComplet
         }
 
 
-        _firstSong.postValue(UiState.Success(1))
+
     }
 
     private fun setSeekbar(){
