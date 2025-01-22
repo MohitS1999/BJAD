@@ -4,8 +4,11 @@
 Welcome to Temple Android app!
 
 • Built an app from scratch to provide devotees with easy access to photos, videos, and audio at their fingertips.
+
 • Integrated the ExoPlayer library for seamless audio and video playback within the app.
+
 • Used Single activity architecture for avoiding the transition Animation problem.
+
 • Utilized Firebase as a cloud backend to store and retrieve data efficiently for rendering on the app
 
 ### Requirements
