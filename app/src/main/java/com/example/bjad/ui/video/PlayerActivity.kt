@@ -287,19 +287,9 @@ class PlayerActivity : AppCompatActivity(), AudioManager.OnAudioFocusChangeListe
     override fun onShowPress(e: MotionEvent) = Unit
 
     override fun onSingleTapUp(e: MotionEvent): Boolean = false
-
-    override fun onLongPress(e: MotionEvent) = Unit
-
-    override fun onFling(
-        e1: MotionEvent,
-        e2: MotionEvent,
-        velocityX: Float,
-        velocityY: Float
-    ): Boolean = false
-
     override fun onScroll(
-        event: MotionEvent,
-        event1: MotionEvent,
+        event: MotionEvent?,
+        e2: MotionEvent,
         distanceX: Float,
         distanceY: Float
     ): Boolean {
@@ -333,6 +323,16 @@ class PlayerActivity : AppCompatActivity(), AudioManager.OnAudioFocusChangeListe
             }
         }
         return true
+    }
+
+    override fun onLongPress(e: MotionEvent) = Unit
+    override fun onFling(
+        e1: MotionEvent?,
+        e2: MotionEvent,
+        velocityX: Float,
+        velocityY: Float
+    ): Boolean {
+        return false
     }
 
     override fun onResume() {

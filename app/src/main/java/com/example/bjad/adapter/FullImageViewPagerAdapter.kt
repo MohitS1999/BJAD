@@ -10,8 +10,6 @@ import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.bjad.R
-import com.example.bjad.ui.photos.FullImageFragment
-import kotlinx.android.synthetic.main.full_view_image.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 

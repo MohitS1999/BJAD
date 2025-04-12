@@ -12,7 +12,6 @@ import com.example.bjad.databinding.FragmentForgotPasswordBinding
 import com.example.bjad.util.UiState
 import com.example.bjad.util.isValidEmail
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_forgot_password.*
 
 
 private const val TAG = "ForgotPassword"

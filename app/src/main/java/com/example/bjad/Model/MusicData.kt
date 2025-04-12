@@ -1,10 +1,11 @@
 package com.example.bjad.Model
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 
 private const val TAG = "MusicData"
+@Parcelize
 data class MusicData(
     val songName:String = "",
     val songNameHi:String = "",
@@ -13,6 +14,6 @@ data class MusicData(
     val singerName:String ="",
     val time:String ="",
     var isFavourite: Boolean = false
-) : java.io.Serializable
+) : Parcelable
 
 

@@ -14,7 +14,6 @@ import com.example.bjad.databinding.FragmentRegisterBinding
 import com.example.bjad.util.UiState
 import com.example.bjad.util.isValidEmail
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_login.*
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {

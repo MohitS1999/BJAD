@@ -21,7 +21,6 @@ import com.example.bjad.R
 import com.example.bjad.databinding.FragmentMainViewBinding
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_main_view.*
 import java.text.SimpleDateFormat
 import java.util.*
 

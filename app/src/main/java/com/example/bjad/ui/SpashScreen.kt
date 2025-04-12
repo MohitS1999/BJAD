@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SpashScreen() : Fragment() {
 
-    private lateinit var mAuth: FirebaseAuth
+    //private lateinit var mAuth: FirebaseAuth
 
 
     override fun onCreateView(
@@ -31,13 +31,9 @@ class SpashScreen() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mAuth = FirebaseAuth.getInstance()
+        //mAuth = FirebaseAuth.getInstance()
         Handler(Looper.getMainLooper()).postDelayed({
-            if (mAuth.currentUser == null){
-                findNavController().navigate(R.id.action_spashScreen_to_loginFragment,Bundle().apply {  })
-            }else{
-                findNavController().navigate(R.id.action_spashScreen_to_mainViewFragment,Bundle().apply {  })
-            }
+            findNavController().navigate(R.id.action_spashScreen_to_mainViewFragment,Bundle().apply {  })
         }, 1000)
 
     }

@@ -14,7 +14,6 @@ import com.example.bjad.databinding.FragmentLoginBinding
 import com.example.bjad.util.UiState
 import com.example.bjad.util.isValidEmail
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_login.*
 
 private const val TAG = "LoginFragment"
 

@@ -17,8 +17,6 @@ import com.example.bjad.databinding.FragmentVideoListBinding
 import com.example.bjad.ui.audio.MusicHome
 import com.example.bjad.util.UiState
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_video_list.backBtn
-import kotlinx.android.synthetic.main.music_list_view.view.*
 
 private const val TAG = "VideoList"
 @AndroidEntryPoint
@@ -68,7 +66,7 @@ class VideoList : Fragment() {
             }
 
         })
-        backBtn.setOnClickListener {
+        binding.backBtn.setOnClickListener {
             findNavController().popBackStack()
         }
     }

@@ -97,9 +97,6 @@
         <action
             android:id="@+id/action_spashScreen_to_mainViewFragment"
             app:destination="@id/mainViewFragment" />
-        <action
-            android:id="@+id/action_spashScreen_to_loginFragment"
-            app:destination="@id/loginFragment" />
     </fragment>
     <activity
         android:id="@+id/audioActivity"
